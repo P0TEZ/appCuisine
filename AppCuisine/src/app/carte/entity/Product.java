@@ -4,10 +4,13 @@ import java.util.*;
 
 public class Product {
     private String name;
+    private int price;
     private List<Ingredient> ingredientList = new ArrayList<Ingredient>();
 
-    public Product(String name){
+
+    public Product(String name,int price){
         this.name = name;
+        this.price = price;
     }
 
     public String getName() {
@@ -18,9 +21,13 @@ public class Product {
         this.name = name;
     }
 
-    public int addIngredient(Ingredient ingredient){
-        ingredientList.add(ingredient);
+    public int getPrice() {
+        return this.price;
+    }
 
+    public int addIngredient(Ingredient ingredient,int amount){
+        ingredient.setAmount(amount);
+        ingredientList.add(ingredient);
         return 0;
     }
 }

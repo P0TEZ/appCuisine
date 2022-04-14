@@ -25,14 +25,13 @@ public class AppCuisine {
         burger.addIngredient(steack);
         burger.addIngredient(fromage);
         burger.addIngredient(pain);
-        
-        Builder builder = new builder();
         */
-        Drink eau = new Drink("eau");
+        Builder builder = new Builder();
+        Printer printer = new Printer();
 
+        printer.displayMenu();
 
         Personnel Serveur = new Personnel("test","test");
-        System.out.println(Serveur.getNom() +"  "+eau.getName());
         System.out.println("Fin de service"); 
     }
 }
