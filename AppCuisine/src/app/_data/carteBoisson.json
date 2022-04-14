@@ -1,0 +1,28 @@
+{
+    "carte" : [{
+        "name": "limonade",
+        "type": "drink",
+        "price": 4
+    },
+    {
+        "name": "cidreDoux",
+        "type": "drink",
+        "price": 5
+    },
+    {
+        "name": "biereSansAlcool",
+        "type": "drink",
+        "price": 5
+    },
+    {
+        "name": "jusDeFruit",
+        "type": "drink",
+        "price": 1
+    },
+    {
+        "name": "eau",
+        "type": "drink",
+        "price": 0
+    }
+    ]
+}

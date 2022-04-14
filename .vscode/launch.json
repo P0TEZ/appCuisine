@@ -1,0 +1,17 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - AppCuisine",
+            "request": "launch",
+            "mainClass": "app.AppCuisine",
+            "projectName": "AppCuisine"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - App",
+            "request": "launch",
+            "mainClass": "app.App"
+        }
+    ]
+}
