@@ -1,8 +1,10 @@
 package app;
 
+import java.io.File;
 import java.util.*;
 
 import app.carte.entity.*;
+import app.personnel.entity.*;
 
 public class Builder {
     
@@ -11,30 +13,39 @@ public class Builder {
     Map<String, Food> foodList = new HashMap<>();
     
     Map<String, Drink> drinkList = new HashMap<>();
+
+    Map<String, Serveur> serveurList = new HashMap<>();
+
     
     public Builder(){
         this.generateIngredientList();
         this.generateFood();
         this.generateDrink();
+        
+        try {
+            this.loadServeurList();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
     
-
+    
     public void addIngredient(String ingredientName){
         this.ingredientList.put(ingredientName,new Ingredient(ingredientName));
     }
     
     public void generateIngredientList(){
         String ingredientNames[] = {
-        "salade", "tomate", "oignon",
-        "champignon", "pain", "steack",
-        "pateAPizza", "fromage", "chorizo"};
-        
+            "salade", "tomate", "oignon",
+            "champignon", "pain", "steack",
+            "pateAPizza", "fromage", "chorizo"
+        };
+            
         for (int index = 0; index < ingredientNames.length; index++) {
             this.addIngredient(ingredientNames[index]);
-            System.out.println(ingredientNames[index]);
         }         
     }
-    
+        
     public void generateFood(){
         Food burger_3 = new Food("burger_3",15);
         burger_3.addIngredient(ingredientList.get("pain"),1);
@@ -58,7 +69,7 @@ public class Builder {
         salade_1.addIngredient(ingredientList.get("tomate"),1);
         
         
-
+        
         Food potage_1 = new Food("potage_1",8);
         potage_1.addIngredient(ingredientList.get("oignon"), 3);
         
@@ -82,7 +93,7 @@ public class Builder {
         Food pizza_3 = pizza_1;
         pizza_3.setName("pizza_3");
         pizza_3.addIngredient(ingredientList.get("chorizo"),1);
-
+        
         this.foodList.put("burger_1",burger_1);
         this.foodList.put("burger_2",burger_2);
         this.foodList.put("burger_3",burger_3);
@@ -113,4 +124,37 @@ public class Builder {
         this.drinkList.put("eau",eau);
         this.drinkList.put("jusDeFruit",jusDeFruit);
     }
+        
+
+    public void loadServeurList() throws Exception{
+        // pass the path to the file as a parameter
+
+        System.out.println("Loading serveur list...");
+        File file = new File("AppCuisine/src/app/_data/serveurList.txt");
+
+        Scanner sc = new Scanner(file);
+    
+        while (sc.hasNextLine()){
+            String tmpLine = sc.nextLine();
+            int i = 0, begin=0, end=0;
+            List<String> infos = new ArrayList<String>();
+
+            while(i<tmpLine.length() && tmpLine.charAt(i) != '\n'){
+                if(tmpLine.charAt(i) == '_'){
+                    end = i;
+                    infos.add(tmpLine.substring(begin, end));
+                    begin = i+1;
+                }
+                i++;
+            }
+
+            System.out.println(infos.get(3)+ " : "+ infos.get(0)+" "+infos.get(1)+" / Salaire : "+Integer.parseInt(infos.get(2)));
+            Serveur tmpServeur = new Serveur(infos.get(0),infos.get(1),Integer.parseInt(infos.get(2)));
+            serveurList.put(infos.get(0),tmpServeur);
+        }
+    }
 }
+
+
+
+

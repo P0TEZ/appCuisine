@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Builder",
+            "request": "launch",
+            "mainClass": "app.Builder",
+            "projectName": "AppCuisine"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - AppCuisine",
             "request": "launch",
             "mainClass": "app.AppCuisine",
