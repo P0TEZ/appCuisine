@@ -25,6 +25,14 @@ public class Product {
         return this.price;
     }
 
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public List<Ingredient> getIngredinetList(){
+        return this.ingredientList;
+    }
+
     public int addIngredient(Ingredient ingredient,int amount){
         ingredient.setAmount(amount);
         ingredientList.add(ingredient);

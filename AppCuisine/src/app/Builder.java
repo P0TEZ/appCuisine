@@ -16,25 +16,30 @@ public class Builder {
 
     Map<String, Serveur> serveurList = new HashMap<>();
 
-    
     public Builder(){
         this.generateIngredientList();
         this.generateFood();
         this.generateDrink();
-        
+
+        Data.foodList = this.foodList;
+        Data.drinkList = this.drinkList;
+        Data.ingredientList = this.ingredientList;
+
         try {
             this.loadServeurList();
         } catch (Exception e) {
             System.out.println(e);
         }
+
+        Data.serveurList = this.serveurList;
     }
     
     
-    public void addIngredient(String ingredientName){
+    private void addIngredient(String ingredientName){
         this.ingredientList.put(ingredientName,new Ingredient(ingredientName));
     }
     
-    public void generateIngredientList(){
+    private void generateIngredientList(){
         String ingredientNames[] = {
             "salade", "tomate", "oignon",
             "champignon", "pain", "steack",
@@ -46,7 +51,7 @@ public class Builder {
         }         
     }
         
-    public void generateFood(){
+    private void generateFood(){
         Food burger_3 = new Food("burger_3",15);
         burger_3.addIngredient(ingredientList.get("pain"),1);
         burger_3.addIngredient(ingredientList.get("steack"),1);
@@ -107,7 +112,7 @@ public class Builder {
         this.foodList.put("pizza_3",pizza_3);
     }
     
-    public void generateDrink(){
+    private void generateDrink(){
         Drink limonade = new Drink("limonade",4);
         
         Drink cidreDoux = new Drink("cidreDoux",5);
@@ -126,7 +131,7 @@ public class Builder {
     }
         
 
-    public void loadServeurList() throws Exception{
+    private void loadServeurList() throws Exception{
         // pass the path to the file as a parameter
 
         System.out.println("Loading serveur list...");
@@ -148,10 +153,17 @@ public class Builder {
                 i++;
             }
 
-            System.out.println(infos.get(3)+ " : "+ infos.get(0)+" "+infos.get(1)+" / Salaire : "+Integer.parseInt(infos.get(2)));
             Serveur tmpServeur = new Serveur(infos.get(0),infos.get(1),Integer.parseInt(infos.get(2)));
             serveurList.put(infos.get(0),tmpServeur);
+
         }
+        sc.close();
+
+        /*boucle that print serveurList*/
+        /*for(Map.Entry<String, Serveur> entry : serveurList.entrySet()){
+            Serveur tmpServeur = entry.getValue();
+            System.out.println(tmpServeur.getNom()+" "+tmpServeur.getPrenom()+" / Salaire : "+tmpServeur.getSalaire());
+        }*/
     }
 }
 

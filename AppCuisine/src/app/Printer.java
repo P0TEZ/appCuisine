@@ -2,6 +2,8 @@ package app;
 
 import java.util.*;
 
+import app.personnel.entity.*;
+
 public class Printer {
     
     
@@ -39,7 +41,15 @@ public class Printer {
         String serveurPrenom = scanner.nextLine();
 
         
-        /*verif if serveur exist*/
+        /*verif if serveur is in serveurList*/
+        /*Serveur serveur = new Serveur(serveurNom, serveurPrenom, 0);
+        if(builder.getServeurList().contains(serveur)){
+            System.out.println("Le serveur est dans la liste");
+        }
+        else{
+            System.out.println("Le serveur n'est pas dans la liste");
+        }
+        */
         
         
         System.out.println("Numero de la table : ");
@@ -49,6 +59,7 @@ public class Printer {
         System.out.println("Vous avez choisi la table numero " + choixTable);
 
     }
+
 
     
 }

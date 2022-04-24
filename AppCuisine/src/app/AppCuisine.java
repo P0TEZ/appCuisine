@@ -16,7 +16,14 @@ public class AppCuisine {
         Builder builder = new Builder();
         Printer printer = new Printer();
 
-        printer.displayMenu();
+        for (Map.Entry<String, Food> entry : Data.foodList.entrySet()) {
+            System.out.println("food : " + entry.getKey());
+            System.out.println("Ingredient : " + entry.getValue().getIngredinetList());
+        }
+        
+        
+
+//        printer.displayMenu();
 
 
         System.out.println("Fin de service"); 
