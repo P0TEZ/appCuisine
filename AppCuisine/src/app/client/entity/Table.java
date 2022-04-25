@@ -1,16 +1,12 @@
 package app.client.entity;
 
-import app.personnel.entity.*;
-
 public class Table {
     private int id;
-    private Serveur serveur;
     private Commande commande;
     private int status;
     
-    public Table(int id, Serveur serveur){
+    public Table(int id){
         this.id = id;
-        this.serveur = serveur;
     }
     
     /* getters and setters */
@@ -19,12 +15,6 @@ public class Table {
     }
     public void setId(int id) {
         this.id = id;
-    }
-    public Serveur getServeur() {
-        return serveur;
-    }
-    public void setServeur(Serveur serveur) {
-        this.serveur = serveur;
     }
     public Commande getCommande() {
         return commande;

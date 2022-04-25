@@ -132,7 +132,6 @@ public class Builder {
         
 
     private void loadServeurList() throws Exception{
-        // pass the path to the file as a parameter
 
         System.out.println("Loading serveur list...");
         File file = new File("AppCuisine/src/app/_data/serveurList.txt");
@@ -153,17 +152,17 @@ public class Builder {
                 i++;
             }
 
-            Serveur tmpServeur = new Serveur(infos.get(0),infos.get(1),Integer.parseInt(infos.get(2)));
+            Serveur tmpServeur = new Serveur(infos.get(0).toUpperCase(),infos.get(1).toUpperCase(),Integer.parseInt(infos.get(2)));
             serveurList.put(infos.get(0),tmpServeur);
 
         }
         sc.close();
 
         /*boucle that print serveurList*/
-        /*for(Map.Entry<String, Serveur> entry : serveurList.entrySet()){
+        for(Map.Entry<String, Serveur> entry : serveurList.entrySet()){
             Serveur tmpServeur = entry.getValue();
             System.out.println(tmpServeur.getNom()+" "+tmpServeur.getPrenom()+" / Salaire : "+tmpServeur.getSalaire());
-        }*/
+        }
     }
 }
 

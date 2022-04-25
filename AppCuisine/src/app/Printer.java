@@ -23,8 +23,10 @@ public class Printer {
             this.displayCommande();
         }
         else{
-            return;
+            System.out.println("pas encore implemente");
         }
+
+        scanner.close();
     }
 
     public void displayCommande(){
@@ -40,17 +42,18 @@ public class Printer {
 
         String serveurPrenom = scanner.nextLine();
 
-        
-        /*verif if serveur is in serveurList*/
-        /*Serveur serveur = new Serveur(serveurNom, serveurPrenom, 0);
-        if(builder.getServeurList().contains(serveur)){
+
+        /*convert lowercase string to huppercase string*/
+        serveurNom = serveurNom.toUpperCase();
+        serveurPrenom = serveurPrenom.toUpperCase();
+
+        Serveur serveur = new Serveur(serveurNom, serveurPrenom, 0);
+        if(Data.serveurList.containsKey(serveur.getNom())){
             System.out.println("Le serveur est dans la liste");
         }
         else{
             System.out.println("Le serveur n'est pas dans la liste");
         }
-        */
-        
         
         System.out.println("Numero de la table : ");
 
@@ -58,6 +61,7 @@ public class Printer {
 
         System.out.println("Vous avez choisi la table numero " + choixTable);
 
+        scanner.close();
     }
 
 

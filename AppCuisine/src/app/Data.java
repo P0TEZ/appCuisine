@@ -15,6 +15,6 @@ public class Data {
     public static Map<String, Serveur> serveurList = new HashMap<>();
 
     public Data() {
-        
+        System.err.println("can not create an instance of Data");
     }
 }

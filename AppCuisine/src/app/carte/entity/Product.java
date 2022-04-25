@@ -5,6 +5,7 @@ import java.util.*;
 public class Product {
     private String name;
     private int price;
+    private Boolean isReeady;
     private List<Ingredient> ingredientList = new ArrayList<Ingredient>();
 
 
@@ -27,6 +28,14 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public Boolean getIsReeady() {
+        return this.isReeady;
+    }
+
+    public void setIsReeady(Boolean isReeady) {
+        this.isReeady = isReeady;
     }
 
     public List<Ingredient> getIngredinetList(){
