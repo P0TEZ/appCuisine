@@ -1,15 +1,21 @@
 package app.personnel.entity;
 
-public  class Personnel {
+public  abstract class Personnel {
+    private String id;
     private String nom;
     private String prenom;
     private int salaire;
     private boolean IsEnService = false;
     
-    public Personnel(String nom, String prenom, int salaire){
+    public Personnel(String id,String nom, String prenom, int salaire){
+        this.id = id;
         this.nom = nom;
         this.prenom = prenom;
         this.salaire = salaire;
+    }
+
+    public String getId() {
+        return id;
     }
     
     public String getNom() {

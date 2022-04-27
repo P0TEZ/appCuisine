@@ -22,16 +22,29 @@ public class Commande {
     }
 
     /*function to add Drink to the commande*/
-    public void addBoisson(Drink drink, int quantity){
-        boissonMap.put(drink, quantity);
+    public void addBoisson(Drink drink){
+        if(boissonMap.containsKey(drink)){
+            boissonMap.replace(drink, boissonMap.get(drink) + 1);
+        }
+        else{
+            boissonMap.put(drink, 1);
+        }    
     }
+    
     /*function to add Food to the commande*/
-    public void addPlat(Food food, int quantity){
-        platMap.put(food, quantity);
+    public void addPlat(Food food){
+        if(platMap.containsKey(food)){
+            platMap.replace(food, platMap.get(food) + 1);
+        }else{
+            platMap.put(food, 1);
+        }
     }
     
     /*function to get the total price of the commande*/
     public double getTotalPrice(){
+        if(boissonMap.isEmpty() && platMap.isEmpty()){
+            return 0;
+        }
         double totalPrice = 0;
         for (Map.Entry<Drink, Integer> entry : boissonMap.entrySet()) {
             totalPrice += entry.getKey().getPrice() * entry.getValue();

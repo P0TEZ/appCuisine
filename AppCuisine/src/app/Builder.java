@@ -4,17 +4,23 @@ import java.io.File;
 import java.util.*;
 
 import app.carte.entity.*;
+import app.client.entity.*;
 import app.personnel.entity.*;
 
+
 public class Builder {
+    final int MAX_TABLES = 10;
     
     Map<String, Ingredient> ingredientList = new HashMap<>();
     
-    Map<String, Food> foodList = new HashMap<>();
+    Map<String, Food> foodList = new TreeMap<>();
     
-    Map<String, Drink> drinkList = new HashMap<>();
+    Map<String, Drink> drinkList = new TreeMap<>();
 
     Map<String, Serveur> serveurList = new HashMap<>();
+
+
+    Map<Integer, Table> tableList = new HashMap<>();
 
     public Builder(){
         this.generateIngredientList();
@@ -32,6 +38,10 @@ public class Builder {
         }
 
         Data.serveurList = this.serveurList;
+
+        this.generateTable();
+
+        Data.tableList = this.tableList;
     }
     
     
@@ -130,7 +140,6 @@ public class Builder {
         this.drinkList.put("jusDeFruit",jusDeFruit);
     }
         
-
     private void loadServeurList() throws Exception{
 
         System.out.println("Loading serveur list...");
@@ -152,8 +161,9 @@ public class Builder {
                 i++;
             }
 
-            Serveur tmpServeur = new Serveur(infos.get(0).toUpperCase(),infos.get(1).toUpperCase(),Integer.parseInt(infos.get(2)));
-            serveurList.put(infos.get(0),tmpServeur);
+            Serveur tmpServeur = new Serveur(infos.get(0).toUpperCase(),infos.get(1).toUpperCase(),infos.get(2).toUpperCase(),Integer.parseInt(infos.get(3)));
+            serveurList.put(infos.get(0).toUpperCase(),tmpServeur);
+
 
         }
         sc.close();
@@ -161,7 +171,13 @@ public class Builder {
         /*boucle that print serveurList*/
         for(Map.Entry<String, Serveur> entry : serveurList.entrySet()){
             Serveur tmpServeur = entry.getValue();
-            System.out.println(tmpServeur.getNom()+" "+tmpServeur.getPrenom()+" / Salaire : "+tmpServeur.getSalaire());
+            System.out.println("id : " + tmpServeur.getId() + " : " + tmpServeur.getNom()+" "+tmpServeur.getPrenom()+" / Salaire : "+tmpServeur.getSalaire());
+        }
+    }
+
+    private void generateTable(){
+        for(int i = 1; i <= this.MAX_TABLES; i++){
+            tableList.put(i,new Table(i));
         }
     }
 }

@@ -5,7 +5,10 @@ import java.io.*;
 import java.math.*;
 
 import app.personnel.entity.*;
+import app.screen.entity.*;
+import app.screen.entity.ServeurScreen;
 import app.carte.entity.*;
+import app.screen.entity.*;
 
 ///////////////////////////////////////
 
@@ -14,14 +17,13 @@ public class AppCuisine {
         System.out.println("Debut de service"); 
 
         Builder builder = new Builder();
-        Printer printer = new Printer();
 /*  
         for (Map.Entry<String, Food> entry : Data.foodList.entrySet()) {
             System.out.println("food : " + entry.getKey());
             System.out.println("Ingredient : " + entry.getValue().getIngredinetList());
         }*/
 
-        printer.displayMenu();
+        Printer.displayMenu();
 
 
         System.out.println("Fin de service"); 
