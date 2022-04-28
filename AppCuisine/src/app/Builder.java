@@ -19,28 +19,36 @@ public class Builder {
 
     Map<String, Serveur> serveurList = new HashMap<>();
 
+    Map<String, Barman> barmanList = new HashMap<>();
+
+
 
     Map<Integer, Table> tableList = new HashMap<>();
 
     public Builder(){
         this.generateIngredientList();
-        this.generateFood();
-        this.generateDrink();
-
-        Data.foodList = this.foodList;
-        Data.drinkList = this.drinkList;
         Data.ingredientList = this.ingredientList;
+
+        this.generateFood();
+        Data.foodList = this.foodList;
+
+        this.generateDrink();
+        Data.drinkList = this.drinkList;
 
         try {
             this.loadServeurList();
         } catch (Exception e) {
             System.out.println(e);
         }
-
         Data.serveurList = this.serveurList;
+        try {
+            this.loadBarmanList();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        Data.barmanList = this.barmanList;
 
         this.generateTable();
-
         Data.tableList = this.tableList;
     }
     
@@ -163,16 +171,35 @@ public class Builder {
 
             Serveur tmpServeur = new Serveur(infos.get(0).toUpperCase(),infos.get(1).toUpperCase(),infos.get(2).toUpperCase(),Integer.parseInt(infos.get(3)));
             serveurList.put(infos.get(0).toUpperCase(),tmpServeur);
-
-
         }
         sc.close();
+    }
 
-        /*boucle that print serveurList*/
-        for(Map.Entry<String, Serveur> entry : serveurList.entrySet()){
-            Serveur tmpServeur = entry.getValue();
-            System.out.println("id : " + tmpServeur.getId() + " : " + tmpServeur.getNom()+" "+tmpServeur.getPrenom()+" / Salaire : "+tmpServeur.getSalaire());
+    private void loadBarmanList() throws Exception{
+
+        System.out.println("Loading barman list...");
+        File file = new File("AppCuisine/src/app/_data/barmanList.txt");
+
+        Scanner sc = new Scanner(file);
+    
+        while (sc.hasNextLine()){
+            String tmpLine = sc.nextLine();
+            int i = 0, begin=0, end=0;
+            List<String> infos = new ArrayList<String>();
+
+            while(i<tmpLine.length() && tmpLine.charAt(i) != '\n'){
+                if(tmpLine.charAt(i) == '_'){
+                    end = i;
+                    infos.add(tmpLine.substring(begin, end));
+                    begin = i+1;
+                }
+                i++;
+            }
+
+            Barman tmpBarman = new Barman(infos.get(0).toUpperCase(),infos.get(1).toUpperCase(),infos.get(2).toUpperCase(),Integer.parseInt(infos.get(3)));
+            barmanList.put(infos.get(0).toUpperCase(),tmpBarman);
         }
+        sc.close();
     }
 
     private void generateTable(){

@@ -1,6 +1,7 @@
 package app.client.entity;
 
 import java.util.*;
+
 import app.carte.entity.*;
 
 public class Commande {
@@ -8,6 +9,9 @@ public class Commande {
     private Map<Drink,Integer> boissonMap = new HashMap<Drink,Integer>();
     private Map<Food,Integer> platMap = new HashMap<Food,Integer>();
     private int commandeId;
+    private int foodState = 0;//can be 0 for En attente, 1 for en peparation, 2 for prêt, 3 for est servi, -1 for not available...
+    private int drinkState = 0;//can be 0 for En attente, 1 for en peparation, 2 for prêt, 3 for est servi, -1 for not available...
+    
     
     public Commande (){
         
@@ -20,7 +24,7 @@ public class Commande {
     public void setCommandeId(int commandeId) {
         this.commandeId = commandeId;
     }
-
+    
     /*function to add Drink to the commande*/
     public void addBoisson(Drink drink){
         if(boissonMap.containsKey(drink)){
@@ -90,4 +94,98 @@ public class Commande {
     public void removeFood(Food food){
         platMap.remove(food);
     }
+    
+    /*function to print the Food list*/
+    public void printFoodList(){
+        System.out.println("Plats : " + getStateName(foodState));
+        if(platMap.isEmpty()){
+            System.out.println("\tAucun plat");
+        }else{
+            for (Map.Entry<Food, Integer> entry : platMap.entrySet()) {
+                System.out.println("\t" + entry.getKey().getName() + "x" + entry.getValue());
+            }
+        }
+    }
+    
+    /*function to print the Drink list*/
+    public void printDrinkList(){
+        System.out.println("Boissons : " + getStateName(drinkState));
+        if(boissonMap.isEmpty()){
+            System.out.println("\tAucune boisson");
+        }else{
+            for (Map.Entry<Drink, Integer> entry : boissonMap.entrySet()) {
+                System.out.println("\t" + entry.getKey().getName() + "x" + entry.getValue());
+            }
+        }
+    }
+    
+    /*function to print the commande*/
+    public void printCommande(){
+        System.out.println("Commande : ");
+        printFoodList();
+        printDrinkList();
+        System.out.println("Total : " + getTotalPrice());
+    }
+    
+    public int getFoodState() {
+        return this.foodState;
+    }
+    
+    public int getDrinkState() {
+        return this.drinkState;
+    }
+    
+    public String getStateName(int state) {
+        switch (state) {
+            case 0:
+            return "En attente";
+            case 1:
+            return "En préparation";
+            case 2:
+            return "Prêt";
+            case 3:
+            return "Servi";
+            default:
+            return "Indisponible";
+        }
+    }
+    
+    public void setFoodState(int foodState) {
+        this.foodState = foodState;
+    }
+    
+    public void setDrinkState(int drinkState) {
+        this.drinkState = drinkState;
+    }
+    
+    public void sendCommande() {
+        this.foodState = 1;
+        this.drinkState = 1;
+    }
+
+    public void serveCommande() {
+        this.foodState = 3;
+        this.drinkState = 3;
+    }
+    
+    public int getCommandeState() {
+        if(this.foodState == this.drinkState){
+            if (this.foodState == 3 && this.drinkState == 3) {
+                return 3;
+            } else if (this.foodState == 2 && this.drinkState == 2) {
+                return 2;
+            } else if (this.foodState == 1 && this.drinkState == 1) {
+                return 1;
+            } else if (this.foodState == 0 && this.drinkState == 0) {
+                return 0;
+            } else{
+                return -1;
+            }
+        }
+        else {
+            return this.getDrinkState()<this.getFoodState()?this.getDrinkState():this.getFoodState();
+        }
+        
+    }
 }
+

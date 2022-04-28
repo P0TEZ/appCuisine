@@ -15,7 +15,10 @@ public class Data {
     
     public static Map<String, Serveur> serveurList = new HashMap<>();
 
+    public static Map<String, Barman> barmanList = new HashMap<>();
+
     public static Map<Integer, Table> tableList = new HashMap<>();
+
 
 
     public Data() {

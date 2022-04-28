@@ -26,7 +26,8 @@ public class Printer {
                 System.out.println("pas encore implemente");
                 break;
             case 3:
-                System.out.println("pas encore implemente");
+                BarmanScreen barmanScreen = new BarmanScreen();
+                barmanScreen.openBarmanMenu();
                 break;
             case 4:
                 System.out.println("pas encore implemente");
