@@ -13,7 +13,7 @@ public  class Barman extends Personnel {
         super(id,nom,prenom,salaire);
     }
 
-    /*function that get all commande from all tables from all serveurs*/
+    /*function that get all boisson commandes from all tables from all serveurs*/
     public List<Map<Drink,Integer>> getAllCommande(){
         List<Map<Drink,Integer>> commandeList = new ArrayList<>();
         for (Serveur serveur : Data.serveurList.values()) {
@@ -24,5 +24,9 @@ public  class Barman extends Personnel {
             }
         }
         return commandeList;
+    }
+
+    public void prepareDrink(String drinkName){
+
     }
 }

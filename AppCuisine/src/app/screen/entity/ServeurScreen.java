@@ -26,7 +26,6 @@ public class ServeurScreen{
         /*convert lowercase string to huppercase string*/
         personnelId = personnelId.toUpperCase();
         if(personnelId.equals("-1")){
-            scanner.close();
             Printer.displayMenu();
         }
         if(Data.serveurList.containsKey(personnelId)){ 
@@ -64,7 +63,6 @@ public class ServeurScreen{
         //int choix = 0;
         if(choix == -1){
             System.out.println("Retour");
-            scanner.close();
             Printer.displayMenu();
         }else 
         if(choix == 0){
@@ -91,11 +89,8 @@ public class ServeurScreen{
         /*verif if table id already exist*/
         if(Data.tableList.containsKey(idTable)){
             if(Data.tableList.get(idTable).getStatus() == 0){
-                
-                Data.tableList.get(idTable).setStatus(1);
-                Table table = Data.tableList.get(idTable);
-                
-                Data.serveurList.get(this.personnelId).addTable(table);
+
+                Data.serveurList.get(this.personnelId).addTable(idTable);
                 
                 this.tableMenu(idTable);
             }
@@ -181,7 +176,7 @@ public class ServeurScreen{
         }else{
             if(Data.foodList.containsKey(choix)){
                 Food foodChoice = Data.foodList.get(choix);
-                Data.serveurList.get(personnelId).getTableMap().get(tableId).getCommande().addPlat(foodChoice);
+                Data.tableList.get(tableId).getCommande().addPlat(foodChoice);
                 
                 System.out.println("Vous avez ajouté : "+foodChoice.getName());
             }
@@ -206,7 +201,7 @@ public class ServeurScreen{
         }else{
             if(Data.drinkList.containsKey(choix)){
                 Drink drinkChoice = Data.drinkList.get(choix);
-                Data.serveurList.get(personnelId).getTableMap().get(tableId).getCommande().addBoisson(drinkChoice);
+                Data.tableList.get(tableId).getCommande().addBoisson(drinkChoice);
                 
                 System.out.println("Vous avez ajouté : "+drinkChoice.getName());
             }
@@ -226,9 +221,11 @@ public class ServeurScreen{
                     Data.tableList.get(tableId).setStatus(0);
                     Data.serveurList.get(this.personnelId).removeTable(tableId);
                     System.out.println("La table a ete fermee.");
+                    this.displayTables();
                 }
                 else{
                     System.out.println("La table n'est pas ouverte par le serveur.");
+                    this.displayTables();
                 }
                 
             }
@@ -267,10 +264,10 @@ public class ServeurScreen{
             case "0" : 
             switch(tmpCommandeState){
                 case 0:
-                    Data.serveurList.get(this.personnelId).getTableMap().get(tableId).getCommande().sendCommande();
+                    Data.tableList.get(tableId).getCommande().sendCommande();
                     break;
                 case 2:
-                    Data.serveurList.get(this.personnelId).getTableMap().get(tableId).getCommande().serveCommande();
+                    Data.tableList.get(tableId).getCommande().serveCommande();
                     break;
                 case 3:
                     this.closeTable(tableId);
