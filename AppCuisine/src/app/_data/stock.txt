@@ -1,0 +1,14 @@
+tomate_10_
+salade_10_
+oignon_10_
+pain_10_
+chorizo_10_
+fromage_10_
+cidreDoux_10_
+steack_10_
+jusDeFruit_10_
+biereSansAlcool_10_
+limonade_10_
+champignon_10_
+pateAPizza_10_
+eau_10_

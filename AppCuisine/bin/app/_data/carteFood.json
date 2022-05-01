@@ -7,7 +7,7 @@
             {"name":"pain", "amount": 1},
             {"name": "tomate", "amount": 1},
             {"name": "salade", "amount": 1},
-            {"name": "steak", "amount": 1}]
+            {"name": "steack", "amount": 1}]
     }, 
     {
         "name": "burger_2",
@@ -16,7 +16,7 @@
         "ingredient": [
             {"name": "pain", "amount": 1},
             {"name": "salade", "amount": 1},
-            {"name": "steak", "amount": 1}]
+            {"name": "steack", "amount": 1}]
     },
     {
         "name": "burger_3",
@@ -24,7 +24,7 @@
         "price": 15,
         "ingredient": [
             {"name": "pain", "amount": 1},
-            {"name": "steak", "amount": 1}]
+            {"name": "steack", "amount": 1}]
     }, 
     {
         "name": "salade_1",

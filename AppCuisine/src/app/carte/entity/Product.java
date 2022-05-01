@@ -29,7 +29,7 @@ public abstract class Product {
         this.price = price;
     }
 
-    public List<Ingredient> getIngredinetList(){
+    public List<Ingredient> getIngredientList(){
         return this.ingredientList;
     }
 

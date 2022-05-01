@@ -23,12 +23,16 @@ public class AppCuisine {
         Data.serveurList.get("ABCD").addTable(1);
         Data.tableList.get(1).getCommande().addBoisson(Data.drinkList.get("limonade"));
         Data.tableList.get(1).getCommande().addBoisson(Data.drinkList.get("cidreDoux"));
+        Data.tableList.get(1).getCommande().addPlat(Data.foodList.get("salade_1"));
+        Data.tableList.get(1).getCommande().addPlat(Data.foodList.get("salade_1"));
+        Data.tableList.get(1).getCommande().addPlat(Data.foodList.get("burger_3"));
         Data.tableList.get(1).getCommande().sendCommande();
         //ouiiiiiii
         
         Printer.displayMenu();
 
-
+        System.out.println("Sauvegarde des données");
+        Saver.saveStock();
         System.out.println("Fin de service"); 
     }
 }

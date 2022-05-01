@@ -26,7 +26,6 @@ public class BarmanScreen {
         /*convert lowercase string to huppercase string*/
         personnelId = personnelId.toUpperCase();
         if(personnelId.equals("-1")){
-            scanner.close();
             Printer.displayMenu();
         }
         if(Data.barmanList.containsKey(personnelId)){ 
@@ -66,8 +65,8 @@ public class BarmanScreen {
         }
 
         System.out.println("\nChoisissez une commande (-1 pour retour) : ");
-        Scanner scanner1 = new Scanner(System.in);
-        int choixCommande = scanner1.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int choixCommande = scanner.nextInt();
 
         if(choixCommande == -1){
             System.out.println("Retour");
@@ -95,8 +94,8 @@ public class BarmanScreen {
         commande.printDrinkList();
         
         System.out.println("Valider la commande (v/-1) : ");
-        Scanner scanner2 = new Scanner(System.in);
-        String validate = scanner2.nextLine();
+        Scanner scanner = new Scanner(System.in);
+        String validate = scanner.nextLine();
 
         switch (validate){
             case "-1":

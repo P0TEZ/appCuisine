@@ -180,7 +180,9 @@ public class ServeurScreen{
         
         System.out.println("Plats :");
         for (Map.Entry<String, Food> entry : Data.foodList.entrySet()) {
-            System.out.println("\t"+entry.getKey()+" a "+entry.getValue().getPrice()+" euros");
+            if(entry.getValue().isAvailable()){
+                System.out.println("\t"+entry.getKey()+" a "+entry.getValue().getPrice()+" euros");
+            }
         }
         System.out.println("tapez \"-1\" pour arreter la prise de commande et retourner au menu");
         
@@ -189,11 +191,13 @@ public class ServeurScreen{
         if(choix.equals("-1")){
             this.newCommandeMenu(tableId);
         }else{
-            if(Data.foodList.containsKey(choix)){
+            if(Data.foodList.containsKey(choix) && Data.foodList.get(choix).isAvailable()){
                 Food foodChoice = Data.foodList.get(choix);
                 Data.tableList.get(tableId)
                               .getCommande()
                               .addPlat(foodChoice);
+
+                Stock.useFoodIngredient(foodChoice);
                 
                 System.out.println("Vous avez ajouté : "+foodChoice.getName());
             }
@@ -218,13 +222,15 @@ public class ServeurScreen{
         if(choix.equals("-1")){
             this.newCommandeMenu(tableId);
         }else{
-            if(Data.drinkList.containsKey(choix)){
+            if(Data.drinkList.containsKey(choix) && Data.drinkList.get(choix).isAvailable()){
                 Drink drinkChoice = Data.drinkList.get(choix);
                 
                 Data.tableList.get(tableId)
                               .getCommande()
                               .addBoisson(drinkChoice);
                 
+                Stock.useIngredient(drinkChoice.getName(), 1);
+
                 System.out.println("Vous avez ajouté : "+drinkChoice.getName());
             }
             else{

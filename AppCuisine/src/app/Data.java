@@ -19,6 +19,8 @@ public class Data {
 
     public static Map<String, Cuisinier> cuisinierList = new HashMap<>();
 
+    public static Map<String, Manager> managerList = new HashMap<>();
+
     public static Map<Integer, Table> tableList = new HashMap<>();
 
     public Data() {

@@ -23,9 +23,11 @@ public class Builder {
 
     Map<String, Cuisinier> cuisinierList = new HashMap<>();
 
-
+    Map<String, Manager> managerList = new HashMap<>();
 
     Map<Integer, Table> tableList = new HashMap<>();
+
+    Map<String, Integer> stockList = new HashMap<>();
 
     public Builder(){
         this.generateIngredientList();
@@ -55,6 +57,21 @@ public class Builder {
             System.out.println(e);
         }
         Data.cuisinierList = this.cuisinierList;
+        try {
+            this.loadManagerList();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        Data.managerList = this.managerList;
+
+        try {
+            this.loadStockList();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        Stock.set(this.stockList);
+
+        
 
         this.generateTable();
         Data.tableList = this.tableList;
@@ -234,6 +251,59 @@ public class Builder {
 
             Cuisinier tmpCuisinier = new Cuisinier(infos.get(0).toUpperCase(),infos.get(1).toUpperCase(),infos.get(2).toUpperCase(),Integer.parseInt(infos.get(3)));
             cuisinierList.put(infos.get(0).toUpperCase(),tmpCuisinier);
+        }
+        sc.close();
+    }
+
+    private void loadManagerList() throws Exception{
+
+        System.out.println("Loading manager list...");
+        File file = new File("src/app/_data/managerList.txt");
+
+        Scanner sc = new Scanner(file);
+    
+        while (sc.hasNextLine()){
+            String tmpLine = sc.nextLine();
+            int i = 0, begin=0, end=0;
+            List<String> infos = new ArrayList<String>();
+
+            while(i<tmpLine.length() && tmpLine.charAt(i) != '\n'){
+                if(tmpLine.charAt(i) == '_'){
+                    end = i;
+                    infos.add(tmpLine.substring(begin, end));
+                    begin = i+1;
+                }
+                i++;
+            }
+
+            Manager tmpManager = new Manager(infos.get(0).toUpperCase(),infos.get(1).toUpperCase(),infos.get(2).toUpperCase(),Integer.parseInt(infos.get(3)));
+            managerList.put(infos.get(0).toUpperCase(),tmpManager);
+        }
+        sc.close();
+    }
+
+
+    private void loadStockList() throws Exception{
+
+        System.out.println("Loading stock list...");
+        File file = new File("src/app/_data/stock.txt");
+
+        Scanner sc = new Scanner(file);
+    
+        while (sc.hasNextLine()){
+            String tmpLine = sc.nextLine();
+            int i = 0, begin=0, end=0;
+            List<String> infos = new ArrayList<String>();
+
+            while(i<tmpLine.length() && tmpLine.charAt(i) != '\n'){
+                if(tmpLine.charAt(i) == '_'){
+                    end = i;
+                    infos.add(tmpLine.substring(begin, end));
+                    begin = i+1;
+                }
+                i++;
+            }
+            stockList.put(infos.get(0),Integer.parseInt(infos.get(1)));
         }
         sc.close();
     }

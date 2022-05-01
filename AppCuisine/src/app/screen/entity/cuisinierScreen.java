@@ -26,7 +26,6 @@ public class CuisinierScreen {
         /*convert lowercase string to huppercase string*/
         personnelId = personnelId.toUpperCase();
         if(personnelId.equals("-1")){
-            scanner.close();
             Printer.displayMenu();
         }
         if(Data.cuisinierList.containsKey(personnelId)){ 
@@ -40,7 +39,7 @@ public class CuisinierScreen {
         
     }
     
-    public void openBarmanMenu(){
+    public void openCuisinierMenu(){
         System.out.println("------------------------------------------");
 
         System.out.println("Bienvenue sur l'ecran cuisine");
@@ -66,8 +65,8 @@ public class CuisinierScreen {
         }
 
         System.out.println("\nChoisissez une commande (-1 pour retour) : ");
-        Scanner scanner1 = new Scanner(System.in);
-        int choixCommande = scanner1.nextInt();
+        Scanner scanner = new Scanner(System.in);
+        int choixCommande = scanner.nextInt();
 
         if(choixCommande == -1){
             System.out.println("Retour");
@@ -95,8 +94,8 @@ public class CuisinierScreen {
         commande.printFoodList();
         
         System.out.println("Valider la commande (v/-1) : ");
-        Scanner scanner2 = new Scanner(System.in);
-        String validate = scanner2.nextLine();
+        Scanner scanner = new Scanner(System.in);
+        String validate = scanner.nextLine();
 
         switch (validate){
             case "-1":

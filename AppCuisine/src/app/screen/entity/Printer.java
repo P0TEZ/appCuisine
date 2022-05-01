@@ -28,17 +28,18 @@ public class Printer {
                 serveurScreen.openServeurMenu();
                 break;
             case 2:
-                System.out.println("pas encore implemente");
+                CuisinierScreen cuisinierScreen = new CuisinierScreen();
+                cuisinierScreen.openCuisinierMenu();
                 break;
             case 3:
                 BarmanScreen barmanScreen = new BarmanScreen();
                 barmanScreen.openBarmanMenu();
                 break;
             case 4:
-                System.out.println("pas encore implemente");
+                ManagerScreen managerScreen = new ManagerScreen();
+                managerScreen.openManagerMenu();
                 break;
             case 5:
-                System.exit(0);
                 break;
             default:
                 System.out.println("choix non reconnu");

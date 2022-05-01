@@ -102,7 +102,7 @@ public class Commande {
             System.out.println("\tAucun plat");
         }else{
             for (Map.Entry<Food, Integer> entry : platMap.entrySet()) {
-                System.out.println("\t" + entry.getKey().getName() + "x" + entry.getValue());
+                System.out.println("\t" + entry.getKey().getName() + " x" + entry.getValue());
             }
         }
     }
