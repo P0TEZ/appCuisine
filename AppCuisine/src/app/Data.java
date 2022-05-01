@@ -17,9 +17,9 @@ public class Data {
 
     public static Map<String, Barman> barmanList = new HashMap<>();
 
+    public static Map<String, Cuisinier> cuisinierList = new HashMap<>();
+
     public static Map<Integer, Table> tableList = new HashMap<>();
-
-
 
     public Data() {
         System.err.println("can not create an instance of Data");
