@@ -30,6 +30,11 @@ public class Table {
     public void setStatus(int status) {
         this.status = status;
     }
+
+    public void resetTable(){
+        this.commande = new Commande();
+        this.status = 0;
+    }
 }
 
 

@@ -8,6 +8,7 @@ import app.personnel.entity.*;
 import app.screen.entity.*;
 import app.screen.entity.ServeurScreen;
 import app.carte.entity.*;
+import app.client.entity.*;
 import app.screen.entity.*;
 
 ///////////////////////////////////////
@@ -17,12 +18,14 @@ public class AppCuisine {
         System.out.println("Debut de service"); 
 
         Builder builder = new Builder();
-/*  
-        for (Map.Entry<String, Food> entry : Data.foodList.entrySet()) {
-            System.out.println("food : " + entry.getKey());
-            System.out.println("Ingredient : " + entry.getValue().getIngredinetList());
-        }*/
 
+        //a suprrrrrrrr
+        Data.serveurList.get("ABCD").addTable(1);
+        Data.tableList.get(1).getCommande().addBoisson(Data.drinkList.get("limonade"));
+        Data.tableList.get(1).getCommande().addBoisson(Data.drinkList.get("cidreDoux"));
+        Data.tableList.get(1).getCommande().sendCommande();
+        //ouiiiiiii
+        
         Printer.displayMenu();
 
 

@@ -114,7 +114,7 @@ public class Commande {
             System.out.println("\tAucune boisson");
         }else{
             for (Map.Entry<Drink, Integer> entry : boissonMap.entrySet()) {
-                System.out.println("\t" + entry.getKey().getName() + "x" + entry.getValue());
+                System.out.println("\t" + entry.getKey().getName() + " x" + entry.getValue());
             }
         }
     }
@@ -159,8 +159,16 @@ public class Commande {
     }
     
     public void sendCommande() {
-        this.foodState = 1;
-        this.drinkState = 1;
+        if(this.boissonMap.isEmpty()) {
+            this.drinkState = 2;
+        }else{
+            this.drinkState = 1;
+        } 
+        if(this.platMap.isEmpty()){
+            this.foodState = 2;            
+        }else{
+            this.foodState = 1;
+        }
     }
 
     public void serveCommande() {

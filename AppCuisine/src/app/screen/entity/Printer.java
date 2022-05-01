@@ -5,17 +5,22 @@ import java.util.*;
 public class Printer {
     
     
-    public static void displayMenu(){    
+    public static void displayMenu(){
+
+        System.out.println("------------------------------------------");
+
         System.out.println("Quel ecran souhaitez vous afficher?");
-        System.out.println("1-Ecran serveur");
-        System.out.println("2-Ecran cuisine");
-        System.out.println("3-Ecran bar");
-        System.out.println("4-Ecran Monitoring");
-        System.out.println("5-Fermer le programme");
+        System.out.println("\t1-Ecran serveur");
+        System.out.println("\t2-Ecran cuisine");
+        System.out.println("\t3-Ecran bar");
+        System.out.println("\t4-Ecran Monitoring");
+        System.out.println("\t5-Fermer le programme");
         Scanner scanner = new Scanner(System.in);
         int choixEcran = scanner.nextInt();
 
         System.out.println("Vous avez choisi l'écran: " + choixEcran);
+        System.out.println("------------------------------------------");
+        System.out.println();
         
         switch (choixEcran) {
             case 1:

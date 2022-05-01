@@ -151,7 +151,7 @@ public class Builder {
     private void loadServeurList() throws Exception{
 
         System.out.println("Loading serveur list...");
-        File file = new File("AppCuisine/src/app/_data/serveurList.txt");
+        File file = new File("src/app/_data/serveurList.txt");
 
         Scanner sc = new Scanner(file);
     
@@ -178,7 +178,7 @@ public class Builder {
     private void loadBarmanList() throws Exception{
 
         System.out.println("Loading barman list...");
-        File file = new File("AppCuisine/src/app/_data/barmanList.txt");
+        File file = new File("src/app/_data/barmanList.txt");
 
         Scanner sc = new Scanner(file);
     
