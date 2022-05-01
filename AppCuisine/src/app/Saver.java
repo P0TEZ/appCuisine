@@ -15,9 +15,8 @@ public class Saver {
             for (Map.Entry<String, Integer> entry : Stock.getStock().entrySet()) {
                 out.write(entry.getKey() + "_" + entry.getValue() + "_\n");
             }
-            //Close the output stream
             out.close();
-        } catch (Exception e) {//Catch exception if any
+        } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
     }

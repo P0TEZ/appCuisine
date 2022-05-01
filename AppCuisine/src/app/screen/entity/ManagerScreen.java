@@ -4,7 +4,7 @@ import java.util.*;
 
 import app.carte.entity.*;
 import app.client.entity.*;
-import app.Data;
+import app.*;
 
 public class ManagerScreen {
     String personnelId;
@@ -19,9 +19,8 @@ public class ManagerScreen {
         /*scanner get serveur id*/
         System.out.println("\"-1\" : quitter");
         System.out.println("Id du manager : ");
-        Scanner scanner = new Scanner(System.in);
         
-        String personnelId = scanner.nextLine();
+        String personnelId = Scan.sc.nextLine();
         
         /*convert lowercase string to huppercase string*/
         personnelId = personnelId.toUpperCase();
@@ -41,42 +40,41 @@ public class ManagerScreen {
     
     public void openManagerMenu(){
         System.out.println("------------------------------------------");
-
+        
         System.out.println("Bienvenue sur l'ecran manager");
         this.displayManagerMenu();
     }
-
+    
     private void displayManagerMenu(){
         System.out.println("------------------------------------------");
         System.out.println("\t1 : Gérer les stocks");
         System.out.println("\t2 : Afficher toutes les commandes en cours");
         System.out.println("\t3 : Gerer le personnel");
         System.out.println("\t-1 : Retour");
-
-        Scanner scanner = new Scanner(System.in);
-        int choixMenu = scanner.nextInt();
-
+        
+        int choixMenu = Scan.sc.nextInt();
+        
         switch (choixMenu) {
             case 1:
-                this.openStockManager();
-                break;
+            this.openStockManager();
+            break;
             case 2:
-                this.displayAllCommandes();
-                break;
+            this.displayAllCommandes();
+            break;
             case 3:
-                //this.openPersonnelManager();
-                break;
+            //this.openPersonnelManager();
+            break;
             case -1:
-                Printer.displayMenu();
-                break;
+            Printer.displayMenu();
+            break;
             default:
-                System.out.println("Choix invalide");
-                this.displayManagerMenu();
-                break;
+            System.out.println("Choix invalide");
+            this.displayManagerMenu();
+            break;
         }
-
+        
     }
-
+    
     private void openStockManager(){
         System.out.println("------------------------------------------");
         System.out.println("Stock actuel : ");
@@ -84,11 +82,10 @@ public class ManagerScreen {
             System.out.println("\t" + entry.getKey() + " : " + entry.getValue());
         }
         System.out.println("\t-1 : Retour");
-
-
-        Scanner scanner = new Scanner(System.in);
-        String choixIngredient = scanner.nextLine();
-
+        
+        
+        String choixIngredient = Scan.sc.nextLine();
+        
         if(choixIngredient.equals("-1")){
             this.displayManagerMenu();
         }
@@ -98,7 +95,7 @@ public class ManagerScreen {
         else{
             this.openStockManager();
         }
-    
+        
     }
     private void ingredientMenu(String ingredientName){
         System.out.println("------------------------------------------");
@@ -107,38 +104,38 @@ public class ManagerScreen {
         System.out.println("\t2 : Retirer aux stocks");
         System.out.println("\t3 : Supprimer des stocks ");
         System.out.println("\t-1 : Retour");
-
-        try (Scanner scanner = new Scanner(System.in)) {
-            int choixMenu = scanner.nextInt();
-
-            switch(choixMenu){
-                case 1:
-                    this.manageStock(true, ingredientName);
-                    break;
-                case 2:
-                    this.manageStock(false, ingredientName);
-                    break;
-                case 3:
-                    Stock.removeIngredient(ingredientName);
-                    this.openManagerMenu();
-                    break;
-                case -1:
-                    this.openStockManager();
-                    break;
-                default:
-                    System.out.println("Choix invalide");
-                    this.ingredientMenu(ingredientName);
-                    break;
-            }
+        
+        
+        int choixMenu = Scan.sc.nextInt();
+        
+        switch(choixMenu){
+            case 1:
+            this.manageStock(true, ingredientName);
+            break;
+            case 2:
+            this.manageStock(false, ingredientName);
+            break;
+            case 3:
+            Stock.removeIngredient(ingredientName);
+            this.openManagerMenu();
+            break;
+            case -1:
+            this.openStockManager();
+            break;
+            default:
+            System.out.println("Choix invalide");
+            this.ingredientMenu(ingredientName);
+            break;
         }
+        
         this.ingredientMenu(ingredientName);               
     }
-
- 
+    
+    
     private void manageStock(Boolean type, String ingredientName){
         System.out.println("\tQuantité à " + (type ? "ajouter" : "retirer") + " : ");
-        Scanner scanner = new Scanner(System.in);
-        int amount = scanner.nextInt();
+
+        int amount = Scan.sc.nextInt();
         if(type){
             Stock.addIngredient(ingredientName,amount);
         }
@@ -147,14 +144,14 @@ public class ManagerScreen {
         }
         this.openStockManager();
     }
-
-
+    
+    
     private void displayAllCommandes(){
         System.out.println("------------------------------------------");
         System.out.println("Toutes les commandes en cours : ");
-
-
-    /** for every table in tableList*/
+        
+        
+        /** for every table in tableList*/
         for (Table table : Data.tableList.values()) {
             if(table.getCommande().getFoodState() == 1){
                 System.out.println("\n\tTable n°" +table.getId());
@@ -164,13 +161,13 @@ public class ManagerScreen {
             }  
         }
     }
-
-
+    
+    
     private void openPersonnelManager(){
     }
     
     
-
+    
     
     
     

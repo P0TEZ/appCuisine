@@ -1,95 +1,106 @@
 {
-    "carte" : [{
-        "name": "burger_1",
-        "type": "food",
-        "price": 15,
-        "ingredient": [
-            {"name":"pain", "amount": 1},
-            {"name": "tomate", "amount": 1},
-            {"name": "salade", "amount": 1},
-            {"name": "steack", "amount": 1}]
-    }, 
-    {
-        "name": "burger_2",
-        "type": "food",
-        "price": 15,
-        "ingredient": [
-            {"name": "pain", "amount": 1},
-            {"name": "salade", "amount": 1},
-            {"name": "steack", "amount": 1}]
-    },
-    {
-        "name": "burger_3",
-        "type": "food",
-        "price": 15,
-        "ingredient": [
-            {"name": "pain", "amount": 1},
-            {"name": "steack", "amount": 1}]
-    }, 
-    {
-        "name": "salade_1",
-        "type": "food",
-        "price": 9,
-        "ingredient": [
-            {"name": "salade", "amount": 1},
-            {"name": "tomate", "amount": 1}]
-    },    
-    {
-        "name": "salade_2",
-        "type": "food",
-        "price": 9,
-        "ingredient": [
-            {"name": "salade", "amount": 1}]
-    },
-    {
-        "name": "potage_1",
-        "type": "food",
-        "price": 8,
-        "ingredient": [
-            {"name":"oignon", "amount": 3}]
-    }, 
-    {
-        "name": "potage_2",
-        "type": "food",
-        "price": 8,
-        "ingredient": [
-            {"name": "tomate", "amount": 3}]
-    },
-    {
-        "name": "potage_3",
-        "type": "food",
-        "price": 8,
-        "ingredient": [
-            {"name": "champignon", "amount": 3}]
-    },
-    {
-        "name": "pizza_1",
-        "type": "food",
-        "price": 12,
-        "ingredient": [
-            {"name":"pateAPizza", "amount": 1},
-            {"name":"tomate", "amount": 1},
-            {"name":"fromage", "amount": 1}]
-    }, 
-    {
-        "name": "pizza_2",
-        "type": "food",
-        "price": 12,
-        "ingredient": [
-            {"name": "pateAPizza", "amount": 1},
-            {"name":"tomate", "amount": 1},
-            {"name":"fromage", "amount": 1},
-            {"name":"champignon", "amount": 1}]
-    },
-    {
-        "name": "pizza_3",
-        "type": "food",
-        "price": 12,
-        "ingredient": [ 
-            {"name": "pateAPizza", "amount": 1},
-            {"name":"tomate", "amount": 1},
-            {"name":"fromage", "amount": 1},
-            {"name":"chorizo", "amount": 1}]
+    "carte": [{
+            "name": "burger_1",
+            "type": "food",
+            "price": 15,
+            "ingredient": [
+                { "name": "pain", "amount": 1 },
+                { "name": "tomate", "amount": 1 },
+                { "name": "salade", "amount": 1 },
+                { "name": "steack", "amount": 1 }
+            ]
+        },
+        {
+            "name": "burger_2",
+            "type": "food",
+            "price": 15,
+            "ingredient": [
+                { "name": "pain", "amount": 1 },
+                { "name": "salade", "amount": 1 },
+                { "name": "steack", "amount": 1 }
+            ]
+        },
+        {
+            "name": "burger_3",
+            "type": "food",
+            "price": 15,
+            "ingredient": [
+                { "name": "pain", "amount": 1 },
+                { "name": "steack", "amount": 1 }
+            ]
+        },
+        {
+            "name": "salade_1",
+            "type": "food",
+            "price": 9,
+            "ingredient": [
+                { "name": "salade", "amount": 1 },
+                { "name": "tomate", "amount": 1 }
+            ]
+        },
+        {
+            "name": "salade_2",
+            "type": "food",
+            "price": 9,
+            "ingredient": [
+                { "name": "salade", "amount": 1 }
+            ]
+        },
+        {
+            "name": "potage_1",
+            "type": "food",
+            "price": 8,
+            "ingredient": [
+                { "name": "oignon", "amount": 3 }
+            ]
+        },
+        {
+            "name": "potage_2",
+            "type": "food",
+            "price": 8,
+            "ingredient": [
+                { "name": "tomate", "amount": 3 }
+            ]
+        },
+        {
+            "name": "potage_3",
+            "type": "food",
+            "price": 8,
+            "ingredient": [
+                { "name": "champignon", "amount": 3 }
+            ]
+        },
+        {
+            "name": "pizza_1",
+            "type": "food",
+            "price": 12,
+            "ingredient": [
+                { "name": "pateAPizza", "amount": 1 },
+                { "name": "tomate", "amount": 1 },
+                { "name": "fromage", "amount": 1 }
+            ]
+        },
+        {
+            "name": "pizza_2",
+            "type": "food",
+            "price": 12,
+            "ingredient": [
+                { "name": "pateAPizza", "amount": 1 },
+                { "name": "tomate", "amount": 1 },
+                { "name": "fromage", "amount": 1 },
+                { "name": "champignon", "amount": 1 }
+            ]
+        },
+        {
+            "name": "pizza_3",
+            "type": "food",
+            "price": 12,
+            "ingredient": [
+                { "name": "pateAPizza", "amount": 1 },
+                { "name": "tomate", "amount": 1 },
+                { "name": "fromage", "amount": 1 },
+                { "name": "chorizo", "amount": 1 }
+            ]
         }
-        ]
-    }
+    ]
+}

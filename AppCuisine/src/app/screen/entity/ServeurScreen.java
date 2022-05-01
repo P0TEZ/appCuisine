@@ -4,7 +4,7 @@ import java.util.*;
 
 import app.client.entity.*;
 import app.carte.entity.*;
-import app.Data;
+import app.*;
 
 public class ServeurScreen{
     
@@ -20,9 +20,8 @@ public class ServeurScreen{
         /*scanner get serveur id*/
         System.out.println("\"-1\" : quitter");
         System.out.println("Id du serveur : ");
-        Scanner scanner = new Scanner(System.in);
         
-        String personnelId = scanner.nextLine();
+        String personnelId = Scan.sc.nextLine();
         
         /*convert lowercase string to huppercase string*/
         personnelId = personnelId.toUpperCase();
@@ -64,8 +63,7 @@ public class ServeurScreen{
         
         System.out.println("\t" + "-1 : Retour"); 
         
-        Scanner scanner = new Scanner(System.in);
-        int choix = scanner.nextInt();
+        int choix = Scan.sc.nextInt();
         //int choix = 0;
         if(choix == -1){
             System.out.println("Retour");
@@ -87,8 +85,7 @@ public class ServeurScreen{
         System.out.println("------------------------------------------");
         
         System.out.println("Veuillez entrer le numero de la table ou \"-1\" pour annuler : ");
-        Scanner scanner = new Scanner(System.in);
-        int idTable = scanner.nextInt();
+        int idTable = Scan.sc.nextInt();
         
         //scanner.close();
         if(idTable == -1){
@@ -123,8 +120,7 @@ public class ServeurScreen{
         System.out.println("\t" + "3 : Afficher la commande acutelle");
         System.out.println("\t" + "-1 : Retour");
         
-        Scanner scanner = new Scanner(System.in);
-        int choix = scanner.nextInt();
+        int choix = Scan.sc.nextInt();
         
         switch (choix) {
             case 1:
@@ -154,8 +150,7 @@ public class ServeurScreen{
         System.out.println("2 : Boissons");
         System.out.println("-1 : Retour");
         
-        Scanner scanner = new Scanner(System.in);
-        int choix = scanner.nextInt();
+        int choix = Scan.sc.nextInt();
         
         switch (choix) {
             case 1:
@@ -186,8 +181,7 @@ public class ServeurScreen{
         }
         System.out.println("tapez \"-1\" pour arreter la prise de commande et retourner au menu");
         
-        Scanner scanner = new Scanner(System.in);
-        String choix = scanner.nextLine();
+        String choix = Scan.sc.nextLine();
         if(choix.equals("-1")){
             this.newCommandeMenu(tableId);
         }else{
@@ -217,8 +211,7 @@ public class ServeurScreen{
         }
         System.out.println("tapez \"-1\" pour arreter la prise de commande et retourner au menu");
         
-        Scanner scanner = new Scanner(System.in);
-        String choix = scanner.nextLine();
+        String choix = Scan.sc.nextLine();
         if(choix.equals("-1")){
             this.newCommandeMenu(tableId);
         }else{
@@ -300,8 +293,7 @@ public class ServeurScreen{
         
         System.out.println("\t" + "-1 : Retour");
         
-        Scanner scanner = new Scanner(System.in);
-        String choix = scanner.nextLine();
+        String choix = Scan.sc.nextLine();
         
         switch (choix) {
             case "0" : 

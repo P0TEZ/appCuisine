@@ -31,8 +31,6 @@ public class AppCuisine {
         
         Printer.displayMenu();
 
-        System.out.println("Sauvegarde des données");
-        Saver.saveStock();
         System.out.println("Fin de service"); 
     }
 }

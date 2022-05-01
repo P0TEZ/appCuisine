@@ -4,7 +4,7 @@ import java.util.*;
 
 import app.carte.entity.*;
 import app.client.entity.*;
-import app.Data;
+import app.*;
 
 public class CuisinierScreen {
     String personnelId;
@@ -19,9 +19,8 @@ public class CuisinierScreen {
         /*scanner get serveur id*/
         System.out.println("\"-1\" : quitter");
         System.out.println("Id du cuisinier : ");
-        Scanner scanner = new Scanner(System.in);
         
-        String personnelId = scanner.nextLine();
+        String personnelId = Scan.sc.nextLine();
         
         /*convert lowercase string to huppercase string*/
         personnelId = personnelId.toUpperCase();
@@ -65,8 +64,7 @@ public class CuisinierScreen {
         }
 
         System.out.println("\nChoisissez une commande (-1 pour retour) : ");
-        Scanner scanner = new Scanner(System.in);
-        int choixCommande = scanner.nextInt();
+        int choixCommande = Scan.sc.nextInt();
 
         if(choixCommande == -1){
             System.out.println("Retour");
@@ -94,8 +92,7 @@ public class CuisinierScreen {
         commande.printFoodList();
         
         System.out.println("Valider la commande (v/-1) : ");
-        Scanner scanner = new Scanner(System.in);
-        String validate = scanner.nextLine();
+        String validate = Scan.sc.nextLine();
 
         switch (validate){
             case "-1":

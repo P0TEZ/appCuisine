@@ -1,6 +1,7 @@
 package app.screen.entity;
 
 import java.util.*;
+import app.*;
 
 public class Printer {
     
@@ -15,8 +16,8 @@ public class Printer {
         System.out.println("\t3-Ecran bar");
         System.out.println("\t4-Ecran Monitoring");
         System.out.println("\t5-Fermer le programme");
-        Scanner scanner = new Scanner(System.in);
-        int choixEcran = scanner.nextInt();
+
+        int choixEcran = Scan.sc.nextInt();
 
         System.out.println("Vous avez choisi l'écran: " + choixEcran);
         System.out.println("------------------------------------------");
@@ -40,13 +41,15 @@ public class Printer {
                 managerScreen.openManagerMenu();
                 break;
             case 5:
+            System.out.println("Sauvegarde des données");
+            Saver.saveStock();
+
+                System.exit(0);
                 break;
             default:
                 System.out.println("choix non reconnu");
                 displayMenu();
                 break;
         }
-
-        scanner.close();
     }
 }
