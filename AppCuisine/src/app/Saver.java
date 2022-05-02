@@ -6,6 +6,9 @@ import app.carte.entity.*;
 
 public class Saver {
     /*function that save StockList in a file*/
+    /**
+     * It takes the stock from the Stock class and saves it to a text file
+     */
     public static void saveStock() {
         try {
             // Create file 

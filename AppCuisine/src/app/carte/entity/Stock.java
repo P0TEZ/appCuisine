@@ -5,14 +5,31 @@ import java.util.*;
 public class Stock {
     private static Map<String, Integer> stock = new HashMap<>();
     
+/**
+ * It returns a map of the stock
+ * 
+ * @return The stock map.
+ */
     public static Map<String, Integer> getStock() {
         return stock;
     }
 
+/**
+ * It takes a map of strings to integers, and sets the static variable stock to that map
+ * 
+ * @param stock The stock map
+ */
     public static void set(Map<String, Integer> stock) {
         Stock.stock = stock;
     }
 
+/**
+ * If the stock contains the ingredient, add the amount to the stock, otherwise add the ingredient to
+ * the stock
+ * 
+ * @param name the name of the ingredient to add to the stock
+ * @param amount the amount of the ingredient to be added
+ */
     public static void addIngredient(String name, int amount) {
         if (stock.containsKey(name)) {
             stock.put(name, stock.get(name) + amount);
@@ -21,6 +38,13 @@ public class Stock {
         }
     }
 
+/**
+ * If the stock contains the ingredient, and there's enough of it, then subtract the amount from the
+ * stock
+ * 
+ * @param name the name of the ingredient
+ * @param amount the amount of the ingredient to use
+ */
     public static void useIngredient(String name, int amount) {
         if (stock.containsKey(name)) {
             if(stock.get(name) - amount >= 0) {
@@ -33,6 +57,12 @@ public class Stock {
         }
     }
 
+/**
+ * If the stock contains the name, return the stock's amount, otherwise return 0
+ * 
+ * @param name The name of the item
+ * @return The amount of the item in the stock.
+ */
     public static int getAmount(String name) {
         if (stock.containsKey(name)) {
             return stock.get(name);
@@ -41,6 +71,11 @@ public class Stock {
         }
     }
 
+/**
+ * If the stock contains the ingredient, remove it. Otherwise, print an error message
+ * 
+ * @param name the name of the ingredient
+ */
     public static void removeIngredient(String name) {
         if (stock.containsKey(name)) {
             stock.remove(name);
@@ -49,6 +84,9 @@ public class Stock {
         }
     }
 
+/**
+ * It prints the stock.
+ */
     public static void printStock() {
         System.out.println("Stock : ");
         for (Map.Entry<String, Integer> entry : stock.entrySet()) {
@@ -56,6 +94,11 @@ public class Stock {
         }
     }
     
+/**
+ * "For each ingredient in the food's ingredient list, use the ingredient."
+ * 
+ * @param food The food object that you want to use the ingredients from.
+ */
     public static void useFoodIngredient(Food food) {
         for(Ingredient ingredient : food.getIngredientList()) {
             useIngredient(ingredient.getName(), ingredient.getAmount());
