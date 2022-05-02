@@ -18,19 +18,42 @@ public class Table {
     public void setId(int id) {
         this.id = id;
     }*/
+/**
+ * It returns the commande.
+ * 
+ * @return The commande object.
+ */
     public Commande getCommande() {
         return commande;
     }
+/**
+ * It sets the commande.
+ * 
+ * @param commande the commande object
+ */
     public void setCommande(Commande commande) {
         this.commande = commande;
     }
+/**
+ * This function returns the status of the current object
+ * 
+ * @return The status of the order.
+ */
     public int getStatus() {
         return status;
     }
+/**
+ * This function sets the status of the current object to the status passed in as a parameter
+ * 
+ * @param status The status of the response.
+ */
     public void setStatus(int status) {
         this.status = status;
     }
 
+/**
+ * This function is used to reset the table
+ */
     public void resetTable(){
         this.commande = new Commande();
         this.status = 0;
