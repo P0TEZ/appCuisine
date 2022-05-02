@@ -1,4 +1,4 @@
-abcd_Millien_Sheron_2000_Serveur_
-bacd_Villain_Pierre_50_Serveur_
-cabd_Charlet_Joseph_200000_Serveur_
-dbac_Potez_Alex_1_Serveur_
+ABCD_MILLIEN_SHERON_2000_0_
+BACD_VILLAIN_PIERRE_50_0_
+CABD_CHARLET_JOSEPH_2500_2_
+DBAC_POTEZ_ALEX_1_0_

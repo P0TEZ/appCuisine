@@ -26,9 +26,16 @@ public class BarmanScreen {
         personnelId = personnelId.toUpperCase();
         if(personnelId.equals("-1")){
             Printer.displayMenu();
+            return null;
         }
         if(Data.barmanList.containsKey(personnelId)){ 
-            return personnelId;
+            if(Data.barmanList.get(personnelId).getIsEnService()){
+                return personnelId;
+            }else{
+                System.out.println("Le serveur n'est pas en service.");
+                this.askId();
+                return null;
+            }
             
         }else{
             System.out.println("Le barman n'est pas dans la liste.");

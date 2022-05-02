@@ -1,4 +1,4 @@
-efgh_Rascle_Jerome_200000_Barman_
-egfh_Iguider_Aya_2000_Barman_
-ghef_Thuillier_Leo_50_Barman_
-hfge_Piekarz_Manon_1_Barman_
+EFGH_RASCLE_JEROME_2000_1_
+GHEF_THUILLIER_LEO_50_0_
+EGFH_IGUIDER_AYA_2000_0_
+HFGE_PIEKARZ_MANON_1_1_

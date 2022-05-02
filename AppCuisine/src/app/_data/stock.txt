@@ -5,13 +5,13 @@ pain_10_
 chorizo_10_
 fromage_10_
 cidreDoux_10_
+sauceFromagere_14_
 steack_10_
 jusDeFruit_10_
 biereSansAlcool_10_
 limonade_10_
 champignon_10_
+poulet_14_
 pateAPizza_10_
 eau_12_
 galette_14_
-poulet_14_
-sauceFromagere_14_

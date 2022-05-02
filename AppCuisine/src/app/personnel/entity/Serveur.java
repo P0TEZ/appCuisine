@@ -10,8 +10,8 @@ public  class Serveur extends Personnel {
     //private Map<Integer, Table> tableMap = new HashMap<>();
     private List<Integer> idTableList = new ArrayList<>();
 
-    public Serveur(String id, String nom, String prenom, int salaire){
-        super(id,nom,prenom,salaire);
+    public Serveur(String id, String nom, String prenom, int salaire, int nbJourDeTravailDeSuite){
+        super(id,nom,prenom,salaire, nbJourDeTravailDeSuite);
     }
 
 /**

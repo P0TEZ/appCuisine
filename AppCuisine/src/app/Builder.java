@@ -205,7 +205,11 @@ public class Builder {
                 i++;
             }
 
-            Serveur tmpServeur = new Serveur(infos.get(0).toUpperCase(),infos.get(1).toUpperCase(),infos.get(2).toUpperCase(),Integer.parseInt(infos.get(3)));
+            Serveur tmpServeur = new Serveur(infos.get(0).toUpperCase(),
+                                             infos.get(1).toUpperCase(),
+                                             infos.get(2).toUpperCase(),
+                                             Integer.parseInt(infos.get(3)),
+                                             Integer.parseInt(infos.get(4)));
             serveurList.put(infos.get(0).toUpperCase(),tmpServeur);
         }
         sc.close();
@@ -232,7 +236,11 @@ public class Builder {
                 i++;
             }
 
-            Barman tmpBarman = new Barman(infos.get(0).toUpperCase(),infos.get(1).toUpperCase(),infos.get(2).toUpperCase(),Integer.parseInt(infos.get(3)));
+            Barman tmpBarman = new Barman(infos.get(0).toUpperCase(),
+                                          infos.get(1).toUpperCase(),
+                                          infos.get(2).toUpperCase(),
+                                          Integer.parseInt(infos.get(3)),
+                                          Integer.parseInt(infos.get(4)));
             barmanList.put(infos.get(0).toUpperCase(),tmpBarman);
         }
         sc.close();
@@ -260,7 +268,11 @@ public class Builder {
                 i++;
             }
 
-            Cuisinier tmpCuisinier = new Cuisinier(infos.get(0).toUpperCase(),infos.get(1).toUpperCase(),infos.get(2).toUpperCase(),Integer.parseInt(infos.get(3)));
+            Cuisinier tmpCuisinier = new Cuisinier(infos.get(0).toUpperCase(),
+                                                   infos.get(1).toUpperCase(),
+                                                   infos.get(2).toUpperCase(),
+                                                   Integer.parseInt(infos.get(3)),
+                                                   Integer.parseInt(infos.get(4)));
             cuisinierList.put(infos.get(0).toUpperCase(),tmpCuisinier);
         }
         sc.close();
@@ -287,7 +299,11 @@ public class Builder {
                 i++;
             }
 
-            Manager tmpManager = new Manager(infos.get(0).toUpperCase(),infos.get(1).toUpperCase(),infos.get(2).toUpperCase(),Integer.parseInt(infos.get(3)));
+            Manager tmpManager = new Manager(infos.get(0).toUpperCase(),
+                                             infos.get(1).toUpperCase(),
+                                             infos.get(2).toUpperCase(),
+                                             Integer.parseInt(infos.get(3)),
+                                             Integer.parseInt(infos.get(4)));
             managerList.put(infos.get(0).toUpperCase(),tmpManager);
         }
         sc.close();

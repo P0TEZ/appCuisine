@@ -1,4 +1,4 @@
-eeee_Millien_Sheron_2000_Manager_
-ffff_Villain_Pierre_50_Manager_
-gggg_Charlet_Joseph_200000_Manager_
-hhhh_Potez_Alex_1_Manager_
+eeee_Millien_Sheron_2000_1_
+ffff_Villain_Pierre_50_2_
+gggg_Charlet_Joseph_2000_1_
+hhhh_Potez_Alex_1_2_

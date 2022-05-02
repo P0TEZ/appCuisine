@@ -9,8 +9,8 @@ import app.*;
 public  class Barman extends Personnel {
 
 
-    public Barman(String id, String nom, String prenom, int salaire){
-        super(id,nom,prenom,salaire);
+    public Barman(String id, String nom, String prenom, int salaire, int nbJourDeTravailDeSuite){
+        super(id,nom,prenom,salaire,nbJourDeTravailDeSuite);
     }
 
     /*function that get all boisson commandes from all tables from all serveurs*/

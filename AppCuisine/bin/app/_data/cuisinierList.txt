@@ -1,4 +1,5 @@
-aaaa_Millien_Sheron_2000_Cuisinier_
-bbbb_Villain_Pierre_50_Cuisinier_
-cccc_Charlet_Joseph_200000_Cuisinier_
-dddd_Potez_Alex_1_Cuisinier_
+SUJZ_PATOIRE_PIERRE-OBESITE_6000_8_
+AAAA_MILLIEN_SHERON_2000_8_
+BBBB_VILLAIN_PIERRE_50_8_
+CCCC_CHARLET_JOSEPH_2000_8_
+DDDD_POTEZ_ALEX_10_8_

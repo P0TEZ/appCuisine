@@ -7,18 +7,18 @@ public class Printer {
     
     
     public static void displayMenu(){
-
+        
         System.out.println("------------------------------------------");
-
+        
         System.out.println("Quel ecran souhaitez vous afficher?");
         System.out.println("\t1-Ecran serveur");
         System.out.println("\t2-Ecran cuisine");
         System.out.println("\t3-Ecran bar");
-        System.out.println("\t4-Ecran Monitoring");
+        System.out.println("\t4-Ecran manager");
         System.out.println("\t5-Fermer le programme");
-
+        
         int choixEcran = Scan.sc.nextInt();
-
+        
         System.out.println("Vous avez choisi l'écran: " + choixEcran);
         System.out.println("------------------------------------------");
         System.out.println();
@@ -41,9 +41,8 @@ public class Printer {
                 managerScreen.openManagerMenu();
                 break;
             case 5:
-            System.out.println("Sauvegarde des données");
-            Saver.saveStock();
-
+                System.out.println("Sauvegarde des données");
+                Saver.saveAll();
                 System.exit(0);
                 break;
             default:

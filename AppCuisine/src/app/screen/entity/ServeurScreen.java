@@ -27,9 +27,16 @@ public class ServeurScreen{
         personnelId = personnelId.toUpperCase();
         if(personnelId.equals("-1")){
             Printer.displayMenu();
+            return null;
         }
-        if(Data.serveurList.containsKey(personnelId)){ 
-            return personnelId;
+        else if(Data.serveurList.containsKey(personnelId)){ 
+            if(Data.serveurList.get(personnelId).getIsEnService()){
+                return personnelId;
+            }else{
+                System.out.println("Le serveur n'est pas en service.");
+                this.askId();
+                return null;
+            }
             
         }else{
             System.out.println("Le serveur n'est pas dans la liste.");
@@ -146,9 +153,9 @@ public class ServeurScreen{
     private void newCommandeMenu(int tableId){
         System.out.println("------------------------------------------");
         
-        System.out.println("1 : Nourriture");
-        System.out.println("2 : Boissons");
-        System.out.println("-1 : Retour");
+        System.out.println("\t1 : Nourriture");
+        System.out.println("\t2 : Boissons");
+        System.out.println("\t-1 : Retour");
         
         int choix = Scan.sc.nextInt();
         
