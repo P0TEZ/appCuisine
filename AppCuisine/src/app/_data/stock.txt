@@ -12,3 +12,6 @@ limonade_10_
 champignon_10_
 pateAPizza_10_
 eau_12_
+galette_14_
+poulet_14_
+sauceFromagere_14_

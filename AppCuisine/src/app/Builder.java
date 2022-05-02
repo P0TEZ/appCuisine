@@ -86,7 +86,8 @@ public class Builder {
         String ingredientNames[] = {
             "salade", "tomate", "oignon",
             "champignon", "pain", "steack",
-            "pateAPizza", "fromage", "chorizo"
+            "pateAPizza", "fromage", "chorizo",
+            "galette", "poulet", "sauceFromagere"
         };
             
         for (int index = 0; index < ingredientNames.length; index++) {
@@ -141,6 +142,16 @@ public class Builder {
         Food pizza_3 = pizza_1;
         pizza_3.setName("pizza_3");
         pizza_3.addIngredient(ingredientList.get("chorizo"),1);
+
+        Food fajitas_1 = new Food("fajitas_1", 11);
+        fajitas_1.addIngredient(ingredientList.get("galette"),1);
+        fajitas_1.addIngredient(ingredientList.get("sauceFromagere"),1);
+        fajitas_1.addIngredient(ingredientList.get("poulet"),1);
+
+        Food fajitas_2 = new Food("fajitas_2", 11);
+        fajitas_2.addIngredient(ingredientList.get("galette"),1);
+        fajitas_2.addIngredient(ingredientList.get("sauceFromagere"),1);
+        fajitas_2.addIngredient(ingredientList.get("steack"),1);
         
         this.foodList.put("burger_1",burger_1);
         this.foodList.put("burger_2",burger_2);
