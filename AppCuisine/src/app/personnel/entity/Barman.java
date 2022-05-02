@@ -14,6 +14,11 @@ public  class Barman extends Personnel {
     }
 
     /*function that get all boisson commandes from all tables from all serveurs*/
+    /**
+     * It returns a list of maps of drinks and their quantities
+     * 
+     * @return A list of maps of drinks and integers.
+     */
     public List<Map<Drink,Integer>> getAllCommande(){
         List<Map<Drink,Integer>> commandeList = new ArrayList<>();
         for (Serveur serveur : Data.serveurList.values()) {

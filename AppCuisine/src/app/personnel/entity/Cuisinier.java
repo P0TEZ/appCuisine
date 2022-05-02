@@ -14,6 +14,11 @@ public  class Cuisinier extends Personnel {
     }
 
     /*function that get all boisson commandes from all tables from all serveurs*/
+    /**
+     * It returns a list of all the orders of all the tables that are currently being take
+     * 
+     * @return A list of maps of food and integer.
+     */
     public List<Map<Food,Integer>> getAllCommande(){
         List<Map<Food,Integer>> commandeList = new ArrayList<>();
         for (Serveur serveur : Data.serveurList.values()) {
