@@ -28,6 +28,11 @@ public class AppCuisine {
         Data.tableList.get(1).getCommande().addPlat(Data.foodList.get("salade_1"));
         Data.tableList.get(1).getCommande().addPlat(Data.foodList.get("burger_3"));
         Data.tableList.get(1).getCommande().sendCommande();
+
+        Data.serveurList.get("ABCD").setIsEnService(true);
+        Data.barmanList.get("EFGH").setIsEnService(true);
+        Data.cuisinierList.get("AAAA").setIsEnService(true);
+
         //ouiiiiiii
         
         Printer.displayMenu();

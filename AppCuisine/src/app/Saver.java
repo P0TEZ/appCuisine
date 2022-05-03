@@ -4,10 +4,13 @@ import java.io.*;
 import java.util.*;
 import app.carte.entity.*;
 import app.personnel.entity.*;
+import app.screen.entity.*;
 
 public class Saver {
 
     public static void saveAll(){
+        Printer.clearConsole();
+
         saveStock();
         savePersonnel();
     }

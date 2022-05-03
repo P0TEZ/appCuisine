@@ -15,8 +15,12 @@ public class ManagerScreen {
     }
     
     private String askId(){
+        Printer.clearConsole();
+
         System.out.println("------------------------------------------");
-        
+        System.out.println("Connexion manager");
+        System.out.println("------------------------------------------");
+
         /*scanner get serveur id*/
         System.out.println("\"-1\" : quitter");
         System.out.println("Id du manager : ");

@@ -15,6 +15,8 @@ public class ServeurScreen{
     }
     
     private String askId(){
+        Printer.clearConsole();
+
         System.out.println("------------------------------------------");
         
         /*scanner get serveur id*/

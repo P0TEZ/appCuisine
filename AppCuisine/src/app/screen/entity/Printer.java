@@ -4,11 +4,18 @@ import java.util.*;
 import app.*;
 
 public class Printer {
-    
+    public static String ESC = "\u001B";
+    public static String GS = "\u001D";
+    public static String InitializePrinter = ESC + "@";
+    public static String BoldOn = ESC + "E" + "\u0001";
+    public static String BoldOff = ESC + "E" + "\0";
+    public static String DoubleOn = GS + "!" + "\u0011";  // 2x sized text (double-high + double-wide)
+    public static String DoubleOff = GS + "!" + "\0";
     
     public static void displayMenu(){
+        clearConsole();
         
-        System.out.println("\n------------------------------------------");
+        System.out.println("------------------------------------------");
         
         System.out.println("Quel ecran souhaitez vous afficher?\n");
         System.out.println("\t1-Ecran serveur");
@@ -18,7 +25,7 @@ public class Printer {
         System.out.println("\t5-Fermer le programme");
         
         int choixEcran = Scan.sc.nextInt();
-Scan.sc.nextLine(); 
+        Scan.sc.nextLine(); 
         
         System.out.println("\nVous avez choisi l'écran: " + choixEcran);
         
@@ -49,5 +56,18 @@ Scan.sc.nextLine();
                 displayMenu();
                 break;
         }
+    }
+
+    public static void clearConsole(){
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
+
+    public static void boldPrint(String input){
+        System.out.println(BoldOn + input + BoldOff);
+    }
+
+    public static void doublePrint(String input){
+        System.out.println(DoubleOn + input + DoubleOff);
     }
 }

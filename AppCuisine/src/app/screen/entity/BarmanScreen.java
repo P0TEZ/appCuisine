@@ -14,6 +14,8 @@ public class BarmanScreen {
     }
     
     private String askId(){
+        Printer.clearConsole();
+
         System.out.println("------------------------------------------");
         
         /*scanner get serveur id*/

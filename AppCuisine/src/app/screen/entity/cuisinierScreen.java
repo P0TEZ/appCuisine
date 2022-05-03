@@ -14,6 +14,8 @@ public class CuisinierScreen {
     }
     
     private String askId(){
+        Printer.clearConsole();
+
         System.out.println("------------------------------------------");
         
         /*scanner get serveur id*/
