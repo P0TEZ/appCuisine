@@ -71,6 +71,7 @@ public class ServeurScreen{
         System.out.println("\t" + "-1 : Retour"); 
         
         int choix = Scan.sc.nextInt();
+Scan.sc.nextLine(); 
         //int choix = 0;
         if(choix == -1){
             System.out.println("Retour");
@@ -93,6 +94,7 @@ public class ServeurScreen{
         
         System.out.println("Veuillez entrer le numero de la table ou \"-1\" pour annuler : ");
         int idTable = Scan.sc.nextInt();
+Scan.sc.nextLine(); 
         
         //scanner.close();
         if(idTable == -1){
@@ -128,6 +130,7 @@ public class ServeurScreen{
         System.out.println("\t" + "-1 : Retour");
         
         int choix = Scan.sc.nextInt();
+Scan.sc.nextLine(); 
         
         switch (choix) {
             case 1:
@@ -158,6 +161,7 @@ public class ServeurScreen{
         System.out.println("\t-1 : Retour");
         
         int choix = Scan.sc.nextInt();
+Scan.sc.nextLine(); 
         
         switch (choix) {
             case 1:

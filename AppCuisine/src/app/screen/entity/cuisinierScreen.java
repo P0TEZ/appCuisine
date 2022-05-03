@@ -72,6 +72,7 @@ public class CuisinierScreen {
 
         System.out.println("\nChoisissez une commande (-1 pour retour) : ");
         int choixCommande = Scan.sc.nextInt();
+Scan.sc.nextLine(); 
 
         if(choixCommande == -1){
             System.out.println("Retour");

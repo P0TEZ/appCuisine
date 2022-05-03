@@ -55,6 +55,7 @@ public class ManagerScreen {
         System.out.println("\t-1 : Retour");
         
         int choixMenu = Scan.sc.nextInt();
+Scan.sc.nextLine(); 
         
         switch (choixMenu) {
             case 1:
@@ -110,6 +111,7 @@ public class ManagerScreen {
         
         
         int choixMenu = Scan.sc.nextInt();
+Scan.sc.nextLine(); 
         
         switch(choixMenu){
             case 1:
@@ -138,6 +140,7 @@ public class ManagerScreen {
         System.out.println("\tQuantité à " + (type ? "ajouter" : "retirer") + " : ");
         
         int amount = Scan.sc.nextInt();
+Scan.sc.nextLine(); 
         if(type){
             Stock.addIngredient(ingredientName,amount);
         }
@@ -167,6 +170,7 @@ public class ManagerScreen {
         System.out.println("\n" + totalFood + " plats à préparer au total.");   
         System.out.println(totalDrink + " boissons à préparer au total.\n(-1) Pour retour : "); 
         int choix = Scan.sc.nextInt();
+Scan.sc.nextLine(); 
         if(choix == -1){
             this.displayManagerMenu();
         }
@@ -243,6 +247,7 @@ public class ManagerScreen {
         System.out.println("\t4 : Supprimer le personnel");
         System.out.println("\t-1 : Retour");
         int choixMenu = Scan.sc.nextInt();
+Scan.sc.nextLine(); 
         
         switch(choixMenu){
             case 1:
@@ -308,7 +313,7 @@ public class ManagerScreen {
 
 
         else if(type.equals("barman")){
-            if(Data.cuisinierList.get(personnelId)
+            if(Data.barmanList.get(personnelId)
                                .getNbJourDeTravailDeSuite()>=2)
             {
                 System.out.println("Ce personnel a deja travaille les deux derniers jours, vous ne pouvez pas l'ajouter au planning.");
@@ -360,6 +365,7 @@ public class ManagerScreen {
         System.out.println("------------------------------------------");
         System.out.println("Entrer le nouveau salaire : ");
         int salaire = Scan.sc.nextInt();
+Scan.sc.nextLine(); 
         
         if(type.equals("serveur")){
             Data.serveurList.get(personnelId).setSalaire(salaire);
@@ -391,6 +397,7 @@ public class ManagerScreen {
         
         System.out.println("Entrer le salaire : ");
         Integer choixSal = Scan.sc.nextInt();
+Scan.sc.nextLine(); 
         
         String id = Personnel.generateId();
         
@@ -401,6 +408,7 @@ public class ManagerScreen {
         System.out.println("\t2 : Cuisinier");
         System.out.println("\t3 : Barman");
         int choixType = Scan.sc.nextInt();
+Scan.sc.nextLine(); 
         
         /*ask to valide the new personnel*/
         System.out.println("------------------------------------------");
@@ -413,6 +421,7 @@ public class ManagerScreen {
         System.out.println("\n\t1 : Oui");
         System.out.println("\t2 : Non");
         int choixValide = Scan.sc.nextInt();
+Scan.sc.nextLine(); 
         
         if(choixValide == 2){
             this.createNewPersonnel();
@@ -466,6 +475,7 @@ public class ManagerScreen {
         System.out.println("\n\t1 : Oui");
         System.out.println("\t2 : Non");
         int choixValide = Scan.sc.nextInt();
+Scan.sc.nextLine(); 
         
         if(choixValide == 2){
             this.personnelMenu(personnelId, type);

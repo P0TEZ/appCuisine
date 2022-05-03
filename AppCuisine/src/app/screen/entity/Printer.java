@@ -18,7 +18,7 @@ public class Printer {
         System.out.println("\t5-Fermer le programme");
         
         int choixEcran = Scan.sc.nextInt();
-        Scan.sc.nextLine();
+Scan.sc.nextLine(); 
         
         System.out.println("\nVous avez choisi l'écran: " + choixEcran);
         
