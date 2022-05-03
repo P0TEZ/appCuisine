@@ -32,13 +32,13 @@ public class BarmanScreen {
             if(Data.barmanList.get(personnelId).getIsEnService()){
                 return personnelId;
             }else{
-                System.out.println("Le serveur n'est pas en service.");
+                System.out.println("\nLe serveur n'est pas en service.");
                 this.askId();
                 return null;
             }
             
         }else{
-            System.out.println("Le barman n'est pas dans la liste.");
+            System.out.println("\nLe barman n'est pas dans la liste.");
             this.askId();
             return null;
         }

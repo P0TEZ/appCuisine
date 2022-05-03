@@ -32,13 +32,13 @@ public class CuisinierScreen {
             if(Data.cuisinierList.get(personnelId).getIsEnService()){
                 return personnelId;
             }else{
-                System.out.println("Le serveur n'est pas en service.");
+                System.out.println("\nLe serveur n'est pas en service.");
                 this.askId();
                 return null;
             }
             
         }else{
-            System.out.println("Le cuisinier n'est pas dans la liste.");
+            System.out.println("\nLe cuisinier n'est pas dans la liste.");
             this.askId();
             return null;
         }

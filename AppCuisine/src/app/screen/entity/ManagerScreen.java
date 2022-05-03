@@ -21,7 +21,7 @@ public class ManagerScreen {
         System.out.println("\"-1\" : quitter");
         System.out.println("Id du manager : ");
         
-        String personnelId = Scan.sc.nextLine();
+        String personnelId = (String)(Scan.sc.nextLine());
         
         /*convert lowercase string to huppercase string*/
         personnelId = personnelId.toUpperCase();
@@ -33,7 +33,7 @@ public class ManagerScreen {
             return personnelId;
             
         }else{
-            System.out.println("Le manager n'est pas dans la liste.");
+            System.out.println("\nLe manager n'est pas dans la liste.");
             this.askId();
             return null;
         }
@@ -41,14 +41,14 @@ public class ManagerScreen {
     }
     
     public void openManagerMenu(){
-        System.out.println("------------------------------------------");
+        System.out.println("\n------------------------------------------");
         
         System.out.println("Bienvenue sur l'ecran manager");
         this.displayManagerMenu();
     }
     
     private void displayManagerMenu(){
-        System.out.println("------------------------------------------");
+        System.out.println("------------------------------------------\n");
         System.out.println("\t1 : Gérer les stocks");
         System.out.println("\t2 : Afficher toutes les commandes en cours");
         System.out.println("\t3 : Gerer le personnel");
@@ -360,7 +360,6 @@ public class ManagerScreen {
         System.out.println("------------------------------------------");
         System.out.println("Entrer le nouveau salaire : ");
         int salaire = Scan.sc.nextInt();
-        Scan.sc.nextLine();
         
         if(type.equals("serveur")){
             Data.serveurList.get(personnelId).setSalaire(salaire);
@@ -402,7 +401,6 @@ public class ManagerScreen {
         System.out.println("\t2 : Cuisinier");
         System.out.println("\t3 : Barman");
         int choixType = Scan.sc.nextInt();
-        Scan.sc.nextLine();
         
         /*ask to valide the new personnel*/
         System.out.println("------------------------------------------");
@@ -415,7 +413,6 @@ public class ManagerScreen {
         System.out.println("\n\t1 : Oui");
         System.out.println("\t2 : Non");
         int choixValide = Scan.sc.nextInt();
-        Scan.sc.nextLine();
         
         if(choixValide == 2){
             this.createNewPersonnel();
@@ -469,7 +466,6 @@ public class ManagerScreen {
         System.out.println("\n\t1 : Oui");
         System.out.println("\t2 : Non");
         int choixValide = Scan.sc.nextInt();
-        Scan.sc.nextLine();
         
         if(choixValide == 2){
             this.personnelMenu(personnelId, type);

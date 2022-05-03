@@ -15,7 +15,8 @@ import app.screen.entity.*;
 
 public class AppCuisine {
     public static void main(String[] args) throws Exception {
-        System.out.println("Debut de service"); 
+        System.out.println("\n------------------------------------------");
+        System.out.println("Debut de service\n"); 
 
         Builder builder = new Builder();
 

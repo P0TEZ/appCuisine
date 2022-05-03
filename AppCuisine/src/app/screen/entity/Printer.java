@@ -8,9 +8,9 @@ public class Printer {
     
     public static void displayMenu(){
         
-        System.out.println("------------------------------------------");
+        System.out.println("\n------------------------------------------");
         
-        System.out.println("Quel ecran souhaitez vous afficher?");
+        System.out.println("Quel ecran souhaitez vous afficher?\n");
         System.out.println("\t1-Ecran serveur");
         System.out.println("\t2-Ecran cuisine");
         System.out.println("\t3-Ecran bar");
@@ -18,10 +18,9 @@ public class Printer {
         System.out.println("\t5-Fermer le programme");
         
         int choixEcran = Scan.sc.nextInt();
+        Scan.sc.nextLine();
         
-        System.out.println("Vous avez choisi l'écran: " + choixEcran);
-        System.out.println("------------------------------------------");
-        System.out.println();
+        System.out.println("\nVous avez choisi l'écran: " + choixEcran);
         
         switch (choixEcran) {
             case 1:

@@ -33,13 +33,13 @@ public class ServeurScreen{
             if(Data.serveurList.get(personnelId).getIsEnService()){
                 return personnelId;
             }else{
-                System.out.println("Le serveur n'est pas en service.");
+                System.out.println("\nLe serveur n'est pas en service.");
                 this.askId();
                 return null;
             }
             
         }else{
-            System.out.println("Le serveur n'est pas dans la liste.");
+            System.out.println("\nLe serveur n'est pas dans la liste.");
             askId();
             return null;
         }
