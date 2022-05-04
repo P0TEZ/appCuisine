@@ -114,4 +114,21 @@ public class Saver {
             System.err.println("Error: " + e.getMessage());
         }
     }
+
+    public static void saveListeCourse(){
+        System.out.println("Saving liste de course...");
+
+        try {
+            // Create file 
+            FileWriter fstream = new FileWriter("./src/app/_courses.txt");
+            BufferedWriter out = new BufferedWriter(fstream);
+            
+            for (Map.Entry<String, Integer> entry : Manager.generateListDeCourse().entrySet()) {
+                out.write(entry.getKey() + " : " + entry.getValue() + "_\n");
+            }
+            out.close();
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+    }
 }

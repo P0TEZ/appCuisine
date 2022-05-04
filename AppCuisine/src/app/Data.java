@@ -23,6 +23,8 @@ public class Data {
 
     public static Map<Integer, Table> tableList = new HashMap<>();
 
+    public static List<Commande> commandeList = new ArrayList<>();
+
     private static boolean isRetaurantOpen = false;
 
     public Data() {

@@ -59,9 +59,10 @@ public class ManagerScreen {
         
         System.out.println("\t1 : Gérer les stocks");
         System.out.println("\t2 : Afficher toutes les commandes en cours");
-        System.out.println("\t3 : Gerer le personnel");
-        System.out.println("\t4 : Ouvrir le restaurant");
-        System.out.println("\t5 : Fermer le restaurant (sauvegarde)");
+        System.out.println("\t3 : Afficher toutes les commandes de la journée");
+        System.out.println("\t4 : Gerer le personnel");
+        System.out.println("\t5 : Ouvrir le restaurant");
+        System.out.println("\t6 : Fermer le restaurant (sauvegarde)");
         System.out.println("\t-1 : Retour");
         
         int choixMenu = Scan.sc.nextInt();
@@ -75,12 +76,15 @@ public class ManagerScreen {
             this.displayAllCommandes();
             break;
             case 3:
-            this.openPersonnelManager();
+            this.displayCommandesOfTheDay();
             break;
             case 4:
-            this.openRestaurant();
+            this.openPersonnelManager();
             break;
             case 5:
+            this.openRestaurant();
+            break;
+            case 6:
             Saver.saveAll();
             System.exit(0);
             break;
@@ -211,7 +215,40 @@ public class ManagerScreen {
         }
         displayAllCommandes();
     }
-    
+    private void displayCommandesOfTheDay(){
+        Printer.clearConsole();
+        
+        System.out.println("------------------------------------------");
+        System.out.println("Commandes de la journée : ");
+        System.out.println("------------------------------------------");
+        
+        int total = 0;
+        int totalNbBoisson = 0;
+        int totalNbFood = 0;
+        int i = 0;
+        /** for every commmande in commandeList display plats and boisons*/
+        for (Commande commande : Data.commandeList) {
+            commande.printDrinkList();
+            commande.printFoodList();
+            totalNbBoisson+= commande.getNbDrink();
+            totalNbFood+= commande.getNbFood();
+
+            System.out.println("\t"+i+" : " + commande.getTotalPrice() + " euros");
+            System.out.println("------------------------------------------");
+            i++;
+            total += commande.getTotalPrice();
+        }
+        System.out.println("------------------------------------------");
+        System.out.println("Nombre de boissons servies : " + totalNbBoisson);
+        System.out.println("Nombre de plats servies : " + totalNbFood);
+        System.out.println("------------------------------------------");
+        System.out.println("Total de la journée : " + total + " euros.");
+        System.out.println("------------------------------------------");
+        Printer.enterToContinue();
+        Saver.saveListeCourse();
+        this.displayManagerMenu();
+    }
+
     private void openPersonnelManager(){
         Printer.clearConsole();
         

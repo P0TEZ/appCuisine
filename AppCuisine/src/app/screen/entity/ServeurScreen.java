@@ -390,6 +390,7 @@ Scan.sc.nextLine();
             switch(tmpCommandeState){
                 case 0:
                 Data.tableList.get(tableId).getCommande().sendCommande();
+                Data.commandeList.add(Data.tableList.get(tableId).getCommande());
                 this.showCommande(tableId);
                 break;
                 case 2:
