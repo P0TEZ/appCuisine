@@ -10,14 +10,21 @@ public class CuisinierScreen {
     String personnelId;
     
     public CuisinierScreen() {
-        this.personnelId = this.askId();
+        if(!Data.getIsRestaurantOpen()) {
+            System.out.println("En attente de l'ouverture du restaurant...");
+            Printer.enterToContinue();
+            Printer.displayMenu();
+        }else{
+            this.personnelId = this.askId();
+        }
     }
     
     private String askId(){
         Printer.clearConsole();
 
         System.out.println("------------------------------------------");
-        
+        System.out.println("Connexion cuisinier");
+        System.out.println("------------------------------------------");        
         /*scanner get serveur id*/
         System.out.println("\"-1\" : quitter");
         System.out.println("Id du cuisinier : ");
@@ -35,12 +42,14 @@ public class CuisinierScreen {
                 return personnelId;
             }else{
                 System.out.println("\nLe serveur n'est pas en service.");
+                Printer.enterToContinue();
                 this.askId();
                 return null;
             }
             
         }else{
             System.out.println("\nLe cuisinier n'est pas dans la liste.");
+            Printer.enterToContinue();
             this.askId();
             return null;
         }
@@ -48,13 +57,14 @@ public class CuisinierScreen {
     }
     
     public void openCuisinierMenu(){
-        System.out.println("------------------------------------------");
-
-        System.out.println("Bienvenue sur l'ecran cuisine");
         this.displayFoodOrders();
     }
     
     private void displayFoodOrders(){
+        Printer.clearConsole();
+
+        System.out.println("------------------------------------------");
+        System.out.println("Bienvenue sur l'ecran cuisine");
         System.out.println("------------------------------------------");
 
         System.out.println("Commandes à préparer : ");    
@@ -74,7 +84,7 @@ public class CuisinierScreen {
 
         System.out.println("\nChoisissez une commande (-1 pour retour) : ");
         int choixCommande = Scan.sc.nextInt();
-Scan.sc.nextLine(); 
+        Scan.sc.nextLine(); 
 
         if(choixCommande == -1){
             System.out.println("Retour");
@@ -91,13 +101,17 @@ Scan.sc.nextLine();
         else{
             System.out.println("La commande n'existe pas.");
         }
+        Printer.enterToContinue();
         this.displayFoodOrders();
     }
 
     private void displayOrder(int tableId){
+        Printer.clearConsole();
+
+        System.out.println("------------------------------------------");
+        System.out.println("Commande n°" + tableId + " : ");
         System.out.println("------------------------------------------");
 
-        System.out.println("Commande n°" + tableId + " : ");
         Commande commande = Data.tableList.get(tableId).getCommande();
         commande.printFoodList();
         
@@ -112,17 +126,15 @@ Scan.sc.nextLine();
                 Data.tableList.get(tableId).getCommande().setFoodState(2);
                 System.out.println("Votre commande est terminée");
                 this.displayFoodOrders();
+                Printer.enterToContinue();
                 break;
             default:
                 System.out.println("Choix non reconnu");
+                Printer.enterToContinue();
                 this.displayOrder(tableId);
                 break;
         }
 
 
-    }
-    
-    
-    
-    
+    }  
 }

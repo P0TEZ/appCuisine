@@ -10,14 +10,22 @@ public class BarmanScreen {
     String personnelId;
     
     public BarmanScreen() {
-        this.personnelId = this.askId();
+        if(!Data.getIsRestaurantOpen()) {
+            System.out.println("En attente de l'ouverture du restaurant...");
+            Printer.enterToContinue();
+            Printer.displayMenu();
+        }else{
+            this.personnelId = this.askId();
+        }
     }
     
     private String askId(){
         Printer.clearConsole();
 
         System.out.println("------------------------------------------");
-        
+        System.out.println("Connexion barman");
+        System.out.println("------------------------------------------");    
+            
         /*scanner get serveur id*/
         System.out.println("\"-1\" : quitter");
         System.out.println("Id du barman : ");
@@ -35,12 +43,16 @@ public class BarmanScreen {
                 return personnelId;
             }else{
                 System.out.println("\nLe serveur n'est pas en service.");
+                Printer.enterToContinue();
+
                 this.askId();
                 return null;
             }
             
         }else{
             System.out.println("\nLe barman n'est pas dans la liste.");
+            Printer.enterToContinue();
+
             this.askId();
             return null;
         }
@@ -48,13 +60,14 @@ public class BarmanScreen {
     }
     
     public void openBarmanMenu(){
-        System.out.println("------------------------------------------");
-
-        System.out.println("Bienvenue sur l'ecran barman");
         this.displayDrinkOrders();
     }
     
     private void displayDrinkOrders(){
+        Printer.clearConsole();
+        
+        System.out.println("------------------------------------------");
+        System.out.println("Bienvenue sur l'ecran barman");
         System.out.println("------------------------------------------");
 
         System.out.println("Commandes à préparer : ");    
@@ -91,13 +104,18 @@ Scan.sc.nextLine();
         else{
             System.out.println("La commande n'existe pas.");
         }
+        Printer.enterToContinue();
+
         this.displayDrinkOrders();
     }
 
     private void displayOrder(int tableId){
+        Printer.clearConsole();
+
+        System.out.println("------------------------------------------");
+        System.out.println("Commande n°" + tableId + " : ");
         System.out.println("------------------------------------------");
 
-        System.out.println("Commande n°" + tableId + " : ");
         Commande commande = Data.tableList.get(tableId).getCommande();
         commande.printDrinkList();
         
@@ -111,18 +129,19 @@ Scan.sc.nextLine();
             case "v" :
                 Data.tableList.get(tableId).getCommande().setDrinkState(2);
                 System.out.println("Votre commande est terminée");
+                Printer.enterToContinue();
+
                 this.displayDrinkOrders();
                 break;
             default:
                 System.out.println("Choix non reconnu");
+                Printer.enterToContinue();
+
                 this.displayOrder(tableId);
                 break;
         }
 
 
     }
-    
-    
-    
     
 }

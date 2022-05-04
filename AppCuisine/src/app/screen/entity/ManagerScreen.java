@@ -16,11 +16,11 @@ public class ManagerScreen {
     
     private String askId(){
         Printer.clearConsole();
-
+        
         System.out.println("------------------------------------------");
         System.out.println("Connexion manager");
         System.out.println("------------------------------------------");
-
+        
         /*scanner get serveur id*/
         System.out.println("\"-1\" : quitter");
         System.out.println("Id du manager : ");
@@ -38,6 +38,8 @@ public class ManagerScreen {
             
         }else{
             System.out.println("\nLe manager n'est pas dans la liste.");
+            Printer.enterToContinue();
+            
             this.askId();
             return null;
         }
@@ -45,21 +47,24 @@ public class ManagerScreen {
     }
     
     public void openManagerMenu(){
-        System.out.println("\n------------------------------------------");
-        
-        System.out.println("Bienvenue sur l'ecran manager");
         this.displayManagerMenu();
     }
     
     private void displayManagerMenu(){
-        System.out.println("------------------------------------------\n");
+        Printer.clearConsole();
+        
+        System.out.println("------------------------------------------");
+        System.out.println("Bienvenue sur l'ecran manager");
+        System.out.println("------------------------------------------");
+        
         System.out.println("\t1 : Gérer les stocks");
         System.out.println("\t2 : Afficher toutes les commandes en cours");
         System.out.println("\t3 : Gerer le personnel");
+        System.out.println("\t4 : Ouvrir le restaurant");
         System.out.println("\t-1 : Retour");
         
         int choixMenu = Scan.sc.nextInt();
-Scan.sc.nextLine(); 
+        Scan.sc.nextLine(); 
         
         switch (choixMenu) {
             case 1:
@@ -71,11 +76,16 @@ Scan.sc.nextLine();
             case 3:
             this.openPersonnelManager();
             break;
+            case 4:
+            this.openRestaurant();
+            break;
             case -1:
             Printer.displayMenu();
             break;
             default:
             System.out.println("Choix invalide");
+            Printer.enterToContinue();
+            
             this.displayManagerMenu();
             break;
         }
@@ -83,8 +93,12 @@ Scan.sc.nextLine();
     }
     
     private void openStockManager(){
+        Printer.clearConsole();
+        
         System.out.println("------------------------------------------");
         System.out.println("Stock actuel : ");
+        System.out.println("------------------------------------------");
+        
         for (Map.Entry<String, Integer> entry : Stock.getStock().entrySet()) {
             System.out.println("\t" + entry.getKey() + " : " + entry.getValue());
         }
@@ -106,8 +120,12 @@ Scan.sc.nextLine();
     }
     
     private void ingredientMenu(String ingredientName){
+        Printer.clearConsole();
+        
         System.out.println("------------------------------------------");
         System.out.println("Ingredient : "+ingredientName+" : ");
+        System.out.println("------------------------------------------");
+        
         System.out.println("\t1 : Ajouter aux stocks");
         System.out.println("\t2 : Retirer aux stocks");
         System.out.println("\t3 : Supprimer des stocks ");
@@ -115,7 +133,7 @@ Scan.sc.nextLine();
         
         
         int choixMenu = Scan.sc.nextInt();
-Scan.sc.nextLine(); 
+        Scan.sc.nextLine(); 
         
         switch(choixMenu){
             case 1:
@@ -144,7 +162,7 @@ Scan.sc.nextLine();
         System.out.println("\tQuantité à " + (type ? "ajouter" : "retirer") + " : ");
         
         int amount = Scan.sc.nextInt();
-Scan.sc.nextLine(); 
+        Scan.sc.nextLine(); 
         if(type){
             Stock.addIngredient(ingredientName,amount);
         }
@@ -155,8 +173,12 @@ Scan.sc.nextLine();
     }
     
     private void displayAllCommandes(){
+        Printer.clearConsole();
+        
         System.out.println("------------------------------------------");
         System.out.println("Toutes les commandes en cours : ");
+        System.out.println("------------------------------------------");
+        
         int totalFood = 0;
         int totalDrink = 0;
         
@@ -174,7 +196,7 @@ Scan.sc.nextLine();
         System.out.println("\n" + totalFood + " plats à préparer au total.");   
         System.out.println(totalDrink + " boissons à préparer au total.\n(-1) Pour retour : "); 
         int choix = Scan.sc.nextInt();
-Scan.sc.nextLine(); 
+        Scan.sc.nextLine(); 
         if(choix == -1){
             this.displayManagerMenu();
         }
@@ -185,8 +207,12 @@ Scan.sc.nextLine();
     }
     
     private void openPersonnelManager(){
+        Printer.clearConsole();
+        
         System.out.println("------------------------------------------");
         System.out.println("Liste de tout les personnels : ");
+        System.out.println("------------------------------------------");
+        
         
         System.out.println("\tServeurs : (id) : (nom prenom) : (salaire) : (en service)");
         for (Map.Entry<String, Serveur> entry : Data.serveurList.entrySet()) {
@@ -229,6 +255,8 @@ Scan.sc.nextLine();
     }
     
     private void personnelMenu(String personnel, String type){
+        Printer.clearConsole();
+        
         System.out.println("------------------------------------------");
         personnel = personnel.toUpperCase();
         String tmpNom="";
@@ -245,13 +273,15 @@ Scan.sc.nextLine();
             tmpPrenom = Data.barmanList.get(personnel).getPrenom();
         }
         System.out.println(type + " : " + tmpNom + " " + tmpPrenom);
+        System.out.println("------------------------------------------");
+        
         System.out.println("\t1 : Ajouter au planning");
         System.out.println("\t2 : Retirer du planning");
         System.out.println("\t3 : Modifier le salaire");
         System.out.println("\t4 : Supprimer le personnel");
         System.out.println("\t-1 : Retour");
         int choixMenu = Scan.sc.nextInt();
-Scan.sc.nextLine(); 
+        Scan.sc.nextLine(); 
         
         switch(choixMenu){
             case 1:
@@ -271,6 +301,8 @@ Scan.sc.nextLine();
             break;
             default:
             System.out.println("Choix invalide");
+            Printer.enterToContinue();
+            
             this.personnelMenu(personnel, type);
             break;
         }
@@ -284,57 +316,72 @@ Scan.sc.nextLine();
         personnelId = personnelId.toUpperCase();
         if(type.equals("serveur")){
             if(Data.serveurList.get(personnelId)
-                               .getNbJourDeTravailDeSuite()>=2)
+            .getNbJourDeTravailDeSuite()>=2)
             {
                 System.out.println("Ce personnel a deja travaille les deux derniers jours, vous ne pouvez pas l'ajouter au planning.");
+                System.out.println("------------------------------------------");
+                
+                Printer.enterToContinue();
+                
                 this.personnelMenu(personnelId, type);
             }
             Data.serveurList.get(personnelId)
-                .setIsEnService(true);
+            .setIsEnService(true);
             Data.serveurList.get(personnelId)
-                .addNbJourDeTravailDeSuite();
+            .addNbJourDeTravailDeSuite();
             
             Serveur serveur = Data.serveurList.get(personnelId);            
             System.out.println("Le serveur " + serveur.getNom() + " " + serveur.getPrenom() + " est maintenant en service.");
+            
         }
-
-
+        
+        
         else if(type.equals("cuisinier")){
             if(Data.cuisinierList.get(personnelId)
-                               .getNbJourDeTravailDeSuite()>=2)
+            .getNbJourDeTravailDeSuite()>=2)
             {
                 System.out.println("Ce personnel a deja travaille les deux derniers jours, vous ne pouvez pas l'ajouter au planning.");
+                System.out.println("------------------------------------------");
+                
+                Printer.enterToContinue();
+                
                 this.personnelMenu(personnelId, type);
             }
             Data.cuisinierList.get(personnelId)
-                .setIsEnService(true);
+            .setIsEnService(true);
             Data.cuisinierList.get(personnelId)
-                .addNbJourDeTravailDeSuite();
+            .addNbJourDeTravailDeSuite();
             
             Cuisinier cuisinier = Data.cuisinierList.get(personnelId);            
             System.out.println("Le cuisinier " + cuisinier.getNom() + " " + cuisinier.getPrenom() + " est maintenant en service.");
+            
         }
-
-
+        
+        
         else if(type.equals("barman")){
             if(Data.barmanList.get(personnelId)
-                               .getNbJourDeTravailDeSuite()>=2)
+            .getNbJourDeTravailDeSuite()>=2)
             {
                 System.out.println("Ce personnel a deja travaille les deux derniers jours, vous ne pouvez pas l'ajouter au planning.");
+                System.out.println("------------------------------------------");
+                
+                Printer.enterToContinue();
+                
                 this.personnelMenu(personnelId, type);
             }
             Data.barmanList.get(personnelId)
-                .setIsEnService(true);
+            .setIsEnService(true);
             Data.barmanList.get(personnelId)
-                .addNbJourDeTravailDeSuite();
+            .addNbJourDeTravailDeSuite();
             
             
             Barman barman = Data.barmanList.get(personnelId);
             System.out.println("Le barman " + barman.getNom() + " " + barman.getPrenom() + " est maintenant en service.");
+            
         }
-
-
-        this.personnelMenu(personnelId, type);
+        
+        
+        this.openPersonnelManager();
     }
     
     private void removeFromPlanning(String personnelId,String type){
@@ -347,52 +394,69 @@ Scan.sc.nextLine();
             
             Serveur serveur = Data.serveurList.get(personnelId);
             System.out.println("Le serveur " + serveur.getNom() + " " + serveur.getPrenom() + " n'est maintenant plus en service.");
+            
         }
         else if(type.equals("cuisinier")){
             Data.cuisinierList.get(personnelId).setIsEnService(false);
             
             Cuisinier cuisinier = Data.cuisinierList.get(personnelId);
             System.out.println("Le cuisinier " + cuisinier.getNom() + " " + cuisinier.getPrenom() + " n'est plus maintenant en service.");
+            
         }
         else if(type.equals("barman")){
             Data.barmanList.get(personnelId).setIsEnService(false);
             
             Barman barman = Data.barmanList.get(personnelId);
             System.out.println("Le barman " + barman.getNom() + " " + barman.getPrenom() + " n'est maintenant plus en service.");
+            
         }       
         
-        this.personnelMenu(personnelId, type);
+        this.openPersonnelManager();
     }
     
     private void modifySalaire(String personnelId, String type){
         personnelId = personnelId.toUpperCase();
         System.out.println("------------------------------------------");
         System.out.println("Entrer le nouveau salaire : ");
+        System.out.println("------------------------------------------");
+        
         int salaire = Scan.sc.nextInt();
-Scan.sc.nextLine(); 
+        Scan.sc.nextLine(); 
+        System.out.println("------------------------------------------");
         
         if(type.equals("serveur")){
             Data.serveurList.get(personnelId).setSalaire(salaire);
             Serveur serveur = Data.serveurList.get(personnelId);
             System.out.println("Le salaire du serveur " + serveur.getNom() + " " + serveur.getPrenom() + " a été modifié.");
+            Printer.enterToContinue();
+            
         }
         else if(type.equals("cuisinier")){
             Data.cuisinierList.get(personnelId).setSalaire(salaire);
             Cuisinier cuisinier = Data.cuisinierList.get(personnelId);
             System.out.println("Le salaire du cuisinier " + cuisinier.getNom() + " " + cuisinier.getPrenom() + " a été modifié.");
+            Printer.enterToContinue();
+            
         }
         else if(type.equals("barman")){
             Data.barmanList.get(personnelId).setSalaire(salaire);
             Barman barman = Data.barmanList.get(personnelId);
             System.out.println("Le salaire du barman " + barman.getNom() + " " + barman.getPrenom() + " a été modifié.");
+            Printer.enterToContinue();
+            
         }
         
-        this.personnelMenu(personnelId, type);
+        this.openPersonnelManager();
         
     }
     
     private void createNewPersonnel(){
+        Printer.clearConsole();
+        
         System.out.println("------------------------------------------");
+        System.out.println("Création de personnel : ");
+        System.out.println("------------------------------------------");
+        
         System.out.println("Entrer le nom : ");
         String choixNom = Scan.sc.nextLine();
         
@@ -401,7 +465,7 @@ Scan.sc.nextLine();
         
         System.out.println("Entrer le salaire : ");
         Integer choixSal = Scan.sc.nextInt();
-Scan.sc.nextLine(); 
+        Scan.sc.nextLine(); 
         
         String id = Personnel.generateId();
         
@@ -412,7 +476,7 @@ Scan.sc.nextLine();
         System.out.println("\t2 : Cuisinier");
         System.out.println("\t3 : Barman");
         int choixType = Scan.sc.nextInt();
-Scan.sc.nextLine(); 
+        Scan.sc.nextLine(); 
         
         /*ask to valide the new personnel*/
         System.out.println("------------------------------------------");
@@ -425,7 +489,7 @@ Scan.sc.nextLine();
         System.out.println("\n\t1 : Oui");
         System.out.println("\t2 : Non");
         int choixValide = Scan.sc.nextInt();
-Scan.sc.nextLine(); 
+        Scan.sc.nextLine(); 
         
         if(choixValide == 2){
             this.createNewPersonnel();
@@ -449,6 +513,8 @@ Scan.sc.nextLine();
             break;
             default:
             System.out.println("Choix invalide");
+            Printer.enterToContinue();
+            
             this.createNewPersonnel();
             break;
         }
@@ -456,10 +522,14 @@ Scan.sc.nextLine();
     }
     
     private void deletePersonnel(String personnelId, String type){
+        Printer.clearConsole();
+        
         personnelId = personnelId.toUpperCase();
         
         System.out.println("------------------------------------------");
         System.out.println("Voulez-vous supprimer le personnel suivant : \n");
+        System.out.println("------------------------------------------");
+        
         if(type.equals("serveur")){
             System.out.println("\tNom : " + Data.serveurList.get(personnelId).getNom());
             System.out.println("\tPrenom : " + Data.serveurList.get(personnelId).getPrenom());
@@ -479,7 +549,7 @@ Scan.sc.nextLine();
         System.out.println("\n\t1 : Oui");
         System.out.println("\t2 : Non");
         int choixValide = Scan.sc.nextInt();
-Scan.sc.nextLine(); 
+        Scan.sc.nextLine(); 
         
         if(choixValide == 2){
             this.personnelMenu(personnelId, type);
@@ -487,21 +557,73 @@ Scan.sc.nextLine();
         System.out.println("------------------------------------------");
         switch(type){
             case "serveur":
-                System.out.println("Le serveur " + Data.serveurList.get(personnelId).getNom() + " " + Data.serveurList.get(personnelId).getPrenom() + " a été supprimé.");
-                Data.serveurList.remove(personnelId);
-                break;
+            System.out.println("Le serveur " + Data.serveurList.get(personnelId).getNom() + " " + Data.serveurList.get(personnelId).getPrenom() + " a été supprimé.");
+            Data.serveurList.remove(personnelId);
+            break;
             case "cuisinier":
-                System.out.println("Le cuisinier " + Data.cuisinierList.get(personnelId).getNom() + " " + Data.cuisinierList.get(personnelId).getPrenom() + " a été supprimé.");
-                Data.cuisinierList.remove(personnelId);
-                break;
+            System.out.println("Le cuisinier " + Data.cuisinierList.get(personnelId).getNom() + " " + Data.cuisinierList.get(personnelId).getPrenom() + " a été supprimé.");
+            Data.cuisinierList.remove(personnelId);
+            break;
             case "barman":
-                System.out.println("Le barman " + Data.barmanList.get(personnelId).getNom() + " " + Data.barmanList.get(personnelId).getPrenom() + " a été supprimé.");
-                Data.barmanList.remove(personnelId);
-                break;
+            System.out.println("Le barman " + Data.barmanList.get(personnelId).getNom() + " " + Data.barmanList.get(personnelId).getPrenom() + " a été supprimé.");
+            Data.barmanList.remove(personnelId);
+            break;
             default :
-                this.personnelMenu(personnelId, type);;
-                break; 
+            this.personnelMenu(personnelId, type);;
+            break; 
         }
         this.openPersonnelManager();
     }
+    
+    public void openRestaurant(){
+        /*function that get number of serveur who are 'en service'*/
+        int nbServeur = 0;
+        for (Map.Entry<String, Serveur> entry : Data.serveurList.entrySet()) {
+            if(entry.getValue().getIsEnService() == true){
+                nbServeur++;
+            }
+        }
+        
+        /*function that get number of cuisinier who are 'en service'*/
+        int nbCuisinier = 0;
+        for (Map.Entry<String, Cuisinier> entry : Data.cuisinierList.entrySet()) {
+            if(entry.getValue().getIsEnService() == true){
+                nbCuisinier++;
+            }
+        }
+        
+        /*function that get number of barman who are 'en service'*/
+        int nbBarman = 0;
+        for (Map.Entry<String, Barman> entry : Data.barmanList.entrySet()) {
+            if(entry.getValue().getIsEnService() == true){
+                nbBarman++;
+            }
+        }
+        
+        Printer.clearConsole();
+        
+        System.out.println("------------------------------------------");
+        System.out.println("Nombre de serveur en service : " + nbServeur);
+        System.out.println("Nombre de cuisinier en service : " + nbCuisinier);
+        System.out.println("Nombre de barman en service : " + nbBarman);
+        System.out.println("------------------------------------------");
+        
+        if(nbServeur >= 2 && nbCuisinier >= 4 && nbBarman >= 1){
+            System.out.println("Le restaurant ouvre !");
+            System.out.println("------------------------------------------");
+            
+            Data.setIsRestaurantOpen(true);            
+        }else{
+            System.out.println("Le restaurant ne peut pas ouvrir, il manque du personnel.");
+            System.out.println("\n");
+            System.out.println("Rappel, il faut :");
+            System.out.println("\t2 serveurs en service");
+            System.out.println("\t4 cuisiniers en service");
+            System.out.println("\t1 barman en service");         
+            System.out.println("------------------------------------------");
+        }   
+        Printer.enterToContinue();
+        this.openManagerMenu();     
+    }
+    
 }

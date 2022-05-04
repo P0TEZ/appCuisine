@@ -23,7 +23,16 @@ public class Data {
 
     public static Map<Integer, Table> tableList = new HashMap<>();
 
+    private static boolean isRetaurantOpen = false;
+
     public Data() {
         System.err.println("can not create an instance of Data");
+    }
+
+    public static void setIsRestaurantOpen(boolean isRestaurantOpen) {
+        Data.isRetaurantOpen = isRestaurantOpen;
+    }
+    public static boolean getIsRestaurantOpen() {
+        return isRetaurantOpen;
     }
 }

@@ -11,12 +11,21 @@ public class ServeurScreen{
     String personnelId;
     
     public ServeurScreen() {
-        this.personnelId = this.askId();
+        if(!Data.getIsRestaurantOpen()) {
+            System.out.println("En attente de l'ouverture du restaurant...");
+            Printer.enterToContinue();
+
+            Printer.displayMenu();
+        }else{
+            this.personnelId = this.askId();
+        }
     }
     
     private String askId(){
         Printer.clearConsole();
 
+        System.out.println("------------------------------------------");
+        System.out.println("Connexion serveur");
         System.out.println("------------------------------------------");
         
         /*scanner get serveur id*/
@@ -36,12 +45,17 @@ public class ServeurScreen{
                 return personnelId;
             }else{
                 System.out.println("\nLe serveur n'est pas en service.");
+
+                System.out.println("[Entrer] pour continuer");
+                Scan.sc.nextLine();
                 this.askId();
                 return null;
             }
             
         }else{
             System.out.println("\nLe serveur n'est pas dans la liste.");
+
+            Printer.enterToContinue();
             askId();
             return null;
         }
@@ -49,13 +63,13 @@ public class ServeurScreen{
     }
     
     public void openServeurMenu(){
-        System.out.println("------------------------------------------");
-        
-        System.out.println("Bienvenue sur l'ecran serveur");
         this.displayTables();
     }
     
     private void displayTables(){
+        Printer.clearConsole();
+        System.out.println("------------------------------------------");
+        System.out.println("Bienvenue sur l'ecran serveur");
         System.out.println("------------------------------------------");
         
         System.out.println("Vos tables : ");
@@ -92,11 +106,12 @@ Scan.sc.nextLine();
     }
     
     private void openNewTable(){
+        Printer.clearConsole();
+
         System.out.println("------------------------------------------");
-        
         System.out.println("Veuillez entrer le numero de la table ou \"-1\" pour annuler : ");
         int idTable = Scan.sc.nextInt();
-Scan.sc.nextLine(); 
+        Scan.sc.nextLine(); 
         
         //scanner.close();
         if(idTable == -1){
@@ -113,26 +128,32 @@ Scan.sc.nextLine();
             }
             else{
                 System.out.println("La table est deja occupee.");
+                System.out.println("[Entrer] pour continuer");
+                Scan.sc.nextLine();
             }
         }
         else{
             System.out.println("La table n'existe pas.");
+            Printer.enterToContinue();
         }
         this.openNewTable();       
         
     }
     
     private void tableMenu(int tableId){
+        Printer.clearConsole();
+
         System.out.println("------------------------------------------");
-        
         System.out.println("Vous avez choisi la table n°" + tableId);
+        System.out.println("------------------------------------------");
+
         System.out.println("\t" + "1 : Ajouter/modifier la commande");
         System.out.println("\t" + "2 : Fermer la table");
         System.out.println("\t" + "3 : Afficher la commande acutelle");
         System.out.println("\t" + "-1 : Retour");
         
         int choix = Scan.sc.nextInt();
-Scan.sc.nextLine(); 
+        Scan.sc.nextLine(); 
         
         switch (choix) {
             case 1:
@@ -149,6 +170,7 @@ Scan.sc.nextLine();
             break;
             default:
             System.out.println("Choix non reconnu");
+            Printer.enterToContinue();
             tableMenu(tableId);
             break;
         }
@@ -156,6 +178,8 @@ Scan.sc.nextLine();
     }
     
     private void newCommandeMenu(int tableId){
+        Printer.clearConsole();
+        
         System.out.println("------------------------------------------");
         
         System.out.println("\t1 : Nourriture");
@@ -163,7 +187,7 @@ Scan.sc.nextLine();
         System.out.println("\t-1 : Retour");
         
         int choix = Scan.sc.nextInt();
-Scan.sc.nextLine(); 
+        Scan.sc.nextLine(); 
         
         switch (choix) {
             case 1:
@@ -177,16 +201,19 @@ Scan.sc.nextLine();
             break;
             default:
             System.out.println("Choix non reconnu");
+            Printer.enterToContinue();
             newCommandeMenu(tableId);
             break;
         }
     }
+    
     private void foodMenu(int tableId){
-        System.out.println("------------------------------------------");
-        
-        System.out.print("\033[H\033[2J");
-        
+        Printer.clearConsole();
+
+        System.out.println("------------------------------------------");        
         System.out.println("Plats :");
+        System.out.println("------------------------------------------");        
+        
         for (Map.Entry<String, Food> entry : Data.foodList.entrySet()) {
             if(entry.getValue().isAvailable()){
                 System.out.println("\t"+entry.getKey()+" a "+entry.getValue().getPrice()+" euros");
@@ -211,14 +238,18 @@ Scan.sc.nextLine();
             else{
                 System.out.println("Plat non reconnu");
             }
+            Printer.enterToContinue();
             this.foodMenu(tableId);
         }
     }
     
     private void drinkMenu(int tableId){
+        Printer.clearConsole();
+
+        System.out.println("------------------------------------------");
+        System.out.println("Boissons :");
         System.out.println("------------------------------------------");
         
-        System.out.println("Boissons :");
         for (Map.Entry<String, Drink> entry : Data.drinkList.entrySet()) {
             System.out.println("\t"+entry.getKey()+" a "+entry.getValue().getPrice()+" euros");
         }
@@ -242,11 +273,14 @@ Scan.sc.nextLine();
             else{
                 System.out.println("Boisson non reconnu");
             }
+            Printer.enterToContinue();
             this.drinkMenu(tableId);
         }
     }    
     
     private void closeTable(int tableId){
+        Printer.clearConsole();
+        
         System.out.println("------------------------------------------");
         
         if(Data.tableList.containsKey(tableId)){
@@ -256,16 +290,25 @@ Scan.sc.nextLine();
                                    .getTableMap()
                                    .containsKey(tableId)){
                     
-                    System.out.println("L'addition est de: " + Data.tableList.get(tableId).getCommande().getTotalPrice() + " euros");
+                    System.out.println("\nL'addition est de: " + Data.tableList.get(tableId).getCommande().getTotalPrice() + " euros");
+                    Facture facture = new Facture(Data.tableList.get(tableId), Data.serveurList.get(personnelId));
+                    facture.displayFacture();
+                    facture.saveFacture();
                     Data.tableList.get(tableId).resetTable();
                     
                     Data.serveurList.get(this.personnelId).removeTable(tableId);
-                    System.out.println("La table a ete fermee.");
-                    
+                    System.out.println("\nLa table a ete fermee.");
+                                
+                    System.out.println("[Entrer] pour continuer");
+                    Scan.sc.nextLine();
+
                     this.displayTables();
                 }
                 else{
-                    System.out.println("La table n'est pas ouverte par le serveur.");
+                    System.out.println("\nLa table n'est pas ouverte par le serveur.");
+                    System.out.println("[Entrer] pour continuer");
+                    Scan.sc.nextLine();
+
                     this.displayTables();
                 }
                 
@@ -274,7 +317,12 @@ Scan.sc.nextLine();
     }
     
     private void showCommande(int tableId){
+        Printer.clearConsole();
+
         System.out.println("------------------------------------------");
+        System.out.println("Menu gestion de commande");
+        System.out.println("------------------------------------------");
+        
         
         Data.serveurList.get(this.personnelId)
                         .getTableMap()

@@ -58,7 +58,7 @@ public class Saver {
                           entry.getValue().getNom() + "_" + 
                           entry.getValue().getPrenom() + "_" + 
                           entry.getValue().getSalaire() + "_" + 
-                          (entry.getValue().getIsEnService()?0:entry.getValue().getNbJourDeTravailDeSuite())
+                          entry.getValue().getNewNbJourDeTravailDeSuite()
                           + "_\n");
             }
             out.close();
@@ -82,7 +82,7 @@ public class Saver {
                           entry.getValue().getNom() + "_" + 
                           entry.getValue().getPrenom() + "_" + 
                           entry.getValue().getSalaire() + "_" + 
-                          (entry.getValue().getIsEnService()?0:entry.getValue().getNbJourDeTravailDeSuite() )
+                          entry.getValue().getNewNbJourDeTravailDeSuite()
                           + "_\n");
             }
             out.close();
@@ -106,7 +106,7 @@ public class Saver {
                           entry.getValue().getNom() + "_" + 
                           entry.getValue().getPrenom() + "_" + 
                           entry.getValue().getSalaire() + "_" + 
-                          (entry.getValue().getIsEnService()?0:entry.getValue().getNbJourDeTravailDeSuite() )
+                          entry.getValue().getNewNbJourDeTravailDeSuite()
                           + "_\n");
             }
             out.close();

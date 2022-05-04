@@ -29,9 +29,12 @@ public class AppCuisine {
         Data.tableList.get(1).getCommande().addPlat(Data.foodList.get("burger_3"));
         Data.tableList.get(1).getCommande().sendCommande();
 
-        Data.serveurList.get("ABCD").setIsEnService(true);
+        Data.serveurList.get("ABCD").setIsEnService(false);
         Data.barmanList.get("EFGH").setIsEnService(true);
         Data.cuisinierList.get("AAAA").setIsEnService(true);
+
+        Data.tableList.get(1).getCommande().setDrinkState(2);
+        Data.tableList.get(1).getCommande().setFoodState(2);
 
         //ouiiiiiii
         

@@ -124,6 +124,20 @@ public  abstract class Personnel {
     public int getNbJourDeTravailDeSuite() {
         return nbJourDeTravailDeSuite;
     }
+
+/**
+ * If the employee is in service, return the number of days worked in a row plus one. Otherwise, return
+ * the number of days worked in a row
+ * 
+ * @return The number of days the employee has worked in a row.
+ */
+    public int getNewNbJourDeTravailDeSuite() {
+        if(this.isEnService){
+            return this.nbJourDeTravailDeSuite + 1;
+        }else{
+            return 0;
+        }
+    }
     
     
     /**
