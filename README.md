@@ -15,6 +15,10 @@ Codé en `java`.
 ![Fichier d'entré stock](https://media.discordapp.net/attachments/656111343937781760/971484739640901702/unknown.png)
 >**Note** : Fichier de données stocks `stock.txt` ( {nomIngredient}\_{quantité} )
 
+- #### Liste de courses en fonctions des commandes de la journée : `AppCuisine/src/app/_courses.txt`
+![enter image description here](https://media.discordapp.net/attachments/656111343937781760/971500263783428156/unknown.png)
+>**Note** : Fichier liste de courses `_courses.txt` ( {nomIngredient}\_{quantitéAAcheter} )
+
 ## Fonctionnalités
 
 ### Serveur :
@@ -97,9 +101,9 @@ Valider la commande : (v/-1)
 
 #### Ouvrir le restaurant : 
 1. Après s'être **connecté** avec son identifiant unique, pour ouvrir le restaurant, le manager doit **ajouter** au moins *quatre cuisiniers, deux serveurs et un barman*.
-2. Pour cela : **naviguer** jusqu'au menu `3 : Gérer le personnel`
+2. Pour cela : **naviguer** jusqu'au menu `4 : Gérer le personnel`
 3. **Taper en toutes lettres** l'identifiant du personnel à ajouter au planning puis une fois dans son menu, appuyer sur `1`.  *(`2` pour le retirer du planning)*
-4. Une fois l'équipe minimum ajoutée, **entrer dans le menu** `4 : Ouvrir le restaurant`
+4. Une fois l'équipe minimum ajoutée, **entrer dans le menu** `5 : Ouvrir le restaurant`
 
 #### Gérer le stock : 
 1. **Naviguer** jusqu'au menu `1 : Gérer les stock`
@@ -114,12 +118,12 @@ tomate x5
 4. **Entrer** dans la section `1` (ajouter), `2` (retirer) ou `3` (supprimer) pour **modifier manuellement** le stock de l'ingrédient sélectionné à l'étape précédente
 
 #### Gérer le personnel : 
-1. **Naviguer** jusqu'au menu `3 : Gérer le personnel`
+1. **Naviguer** jusqu'au menu `4 : Gérer le personnel`
 2. **Taper en toutes lettres** l'identifiant du personnel pour accéder à son menu
 3. D'ici vous pouvez **modifier son salaire** et l'**ajouter/retirer** du planning de la journée.
 
 #### Ajouter un employé : 
-1. **Naviguer** jusqu'au menu `3 : Gérer le personnel`
+1. **Naviguer** jusqu'au menu `4 : Gérer le personnel`
 2. **Taper en toutes lettres** `ajout`
 3. Le menu de création s'affiche et vous **demande** un nom, prénom, salaire et un poste (cuisinier, barman, serveur).
 
