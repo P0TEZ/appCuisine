@@ -1,6 +1,5 @@
 package app.screen.entity;
 
-import java.util.*;
 import app.*;
 
 public class Printer {
@@ -16,7 +15,7 @@ public class Printer {
         System.out.println("\t2-Cuisine");
         System.out.println("\t3-Bar");
         System.out.println("\t4-Manager");
-        System.out.println("\t5-Fermer le restaurant");
+        System.out.println("\t5-Quitter");
         
         int choixEcran = Scan.sc.nextInt();
         Scan.sc.nextLine(); 
@@ -39,9 +38,10 @@ public class Printer {
                 managerScreen.openManagerMenu();
                 break;
             case 5:
-                System.out.println("Sauvegarde des données");
-                Saver.saveAll();
-                System.exit(0);
+                System.out.println("Seul le manager peut fermer le restaurant");
+                enterToContinue();
+                displayMenu();
+
                 break;
             default:
                 System.out.println("choix non reconnu");

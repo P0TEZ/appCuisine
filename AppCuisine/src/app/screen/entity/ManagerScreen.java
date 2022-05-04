@@ -61,6 +61,7 @@ public class ManagerScreen {
         System.out.println("\t2 : Afficher toutes les commandes en cours");
         System.out.println("\t3 : Gerer le personnel");
         System.out.println("\t4 : Ouvrir le restaurant");
+        System.out.println("\t5 : Fermer le restaurant (sauvegarde)");
         System.out.println("\t-1 : Retour");
         
         int choixMenu = Scan.sc.nextInt();
@@ -79,6 +80,11 @@ public class ManagerScreen {
             case 4:
             this.openRestaurant();
             break;
+            case 5:
+            Saver.saveAll();
+            System.exit(0);
+            break;
+
             case -1:
             Printer.displayMenu();
             break;

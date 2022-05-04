@@ -29,9 +29,23 @@ public class Data {
         System.err.println("can not create an instance of Data");
     }
 
+
+   /**
+    * This function sets the value of the isRestaurantOpen variable to the value of the
+    * isRestaurantOpen parameter
+    * 
+    * @param isRestaurantOpen This is a boolean value that is set to true if the restaurant is open,
+    * and false if it is closed.
+    */
     public static void setIsRestaurantOpen(boolean isRestaurantOpen) {
         Data.isRetaurantOpen = isRestaurantOpen;
     }
+/**
+ * This function returns the value of the variable isRestaurantOpen.
+ * 
+ * @return isRetaurantOpen. This is a boolean value that is set to true if the restaurant is open,
+ * and false if it is closed.
+ */
     public static boolean getIsRestaurantOpen() {
         return isRetaurantOpen;
     }

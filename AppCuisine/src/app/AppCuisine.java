@@ -1,15 +1,7 @@
 package app;
 // CIR3 projet TP2 Alexandre & Jérôme
-import java.util.*;
-import java.io.*;
-import java.math.*;
+import app.screen.entity.*;
 
-import app.personnel.entity.*;
-import app.screen.entity.*;
-import app.screen.entity.ServeurScreen;
-import app.carte.entity.*;
-import app.client.entity.*;
-import app.screen.entity.*;
 
 ///////////////////////////////////////
 
@@ -19,6 +11,7 @@ public class AppCuisine {
         System.out.println("Debut de service\n"); 
 
         Builder builder = new Builder();
+        builder.build();
 
         //a suprrrrrrrr
         Data.serveurList.get("ABCD").addTable(1);

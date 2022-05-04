@@ -30,6 +30,9 @@ public class Builder {
     Map<String, Integer> stockList = new HashMap<>();
 
     public Builder(){
+    }
+
+    public void build(){
         this.generateIngredientList();
         Data.ingredientList = this.ingredientList;
 

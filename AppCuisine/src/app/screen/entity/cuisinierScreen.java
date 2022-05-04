@@ -1,8 +1,5 @@
 package app.screen.entity;
 
-import java.util.*;
-
-import app.carte.entity.*;
 import app.client.entity.*;
 import app.*;
 
