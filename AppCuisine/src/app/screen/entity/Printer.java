@@ -1,5 +1,7 @@
 package app.screen.entity;
 
+import java.io.IOException;
+
 import app.*;
 
 public class Printer {
@@ -26,8 +28,8 @@ public class Printer {
                 serveurScreen.openServeurMenu();
                 break;
             case 2:
-                CuisinierScreen cuisinierScreen = new CuisinierScreen();
-                cuisinierScreen.openCuisinierMenu();
+                CuisinerScreen cuisinerScreen = new CuisinerScreen();
+                cuisinerScreen.openCuisinierMenu();
                 break;
             case 3:
                 BarmanScreen barmanScreen = new BarmanScreen();

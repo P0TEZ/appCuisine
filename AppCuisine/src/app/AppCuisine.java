@@ -13,24 +13,11 @@ public class AppCuisine {
         Builder builder = new Builder();
         builder.build();
 
-        //a suprrrrrrrr
-        Data.serveurList.get("ABCD").addTable(1);
-        Data.tableList.get(1).getCommande().addBoisson(Data.drinkList.get("limonade"));
-        Data.tableList.get(1).getCommande().addBoisson(Data.drinkList.get("cidreDoux"));
-        Data.tableList.get(1).getCommande().addPlat(Data.foodList.get("salade_1"));
-        Data.tableList.get(1).getCommande().addPlat(Data.foodList.get("salade_1"));
-        Data.tableList.get(1).getCommande().addPlat(Data.foodList.get("burger_3"));
-        Data.tableList.get(1).getCommande().sendCommande();
 
-        Data.serveurList.get("ABCD").setIsEnService(false);
-        Data.barmanList.get("EFGH").setIsEnService(true);
-        Data.cuisinierList.get("AAAA").setIsEnService(true);
-
-        Data.tableList.get(1).getCommande().setDrinkState(2);
-        Data.tableList.get(1).getCommande().setFoodState(2);
-
-        //ouiiiiiii
-        
+        /////
+        Data.serveurList.get("ABCD").setIsEnService(true);
+        Data.setIsRestaurantOpen(true);
+                
         Printer.displayMenu();
 
         System.out.println("Fin de service"); 

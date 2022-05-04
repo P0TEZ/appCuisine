@@ -82,7 +82,7 @@ public class Builder {
     
     
     private void addIngredient(String ingredientName){
-        this.ingredientList.put(ingredientName,new Ingredient(ingredientName));
+        this.ingredientList.put(ingredientName,new Ingredient(ingredientName, 0));
     }
     
     private void generateIngredientList(){
@@ -103,12 +103,15 @@ public class Builder {
         burger_3.addIngredient(ingredientList.get("pain"),1);
         burger_3.addIngredient(ingredientList.get("steack"),1);
         
-        Food burger_2 = burger_3;
-        burger_2.setName("burger_2");
+        Food burger_2 = new Food("burger_2",15);
+        burger_2.addIngredient(ingredientList.get("pain"),1);
+        burger_2.addIngredient(ingredientList.get("steack"),1);
         burger_2.addIngredient(ingredientList.get("salade"),1); 
         
-        Food burger_1 = burger_2;
-        burger_1.setName("burger_1");
+        Food burger_1 = new Food("burger_1",15);
+        burger_1.addIngredient(ingredientList.get("pain"),1);
+        burger_1.addIngredient(ingredientList.get("steack"),1);
+        burger_1.addIngredient(ingredientList.get("salade"),1);
         burger_1.addIngredient(ingredientList.get("tomate"),1);
         
         
@@ -116,8 +119,8 @@ public class Builder {
         Food salade_2 = new Food("salade_2",9);
         salade_2.addIngredient(ingredientList.get("salade"),1);
         
-        Food salade_1 = salade_2;
-        salade_1.setName("salade_1");
+        Food salade_1 =  new Food("salade_1",9);
+        salade_1.addIngredient(ingredientList.get("salade"),1);
         salade_1.addIngredient(ingredientList.get("tomate"),1);
         
         
@@ -128,7 +131,7 @@ public class Builder {
         Food potage_2 = new Food("potage_2",8);
         potage_2.addIngredient(ingredientList.get("tomate"), 3);
         
-        Food potage_3 = new Food("potage_2",8);
+        Food potage_3 = new Food("potage_3",8);
         potage_3.addIngredient(ingredientList.get("champignon"), 3);
         
         
@@ -138,12 +141,16 @@ public class Builder {
         pizza_1.addIngredient(ingredientList.get("tomate"),1);
         pizza_1.addIngredient(ingredientList.get("fromage"),1);
         
-        Food pizza_2 = pizza_1;
-        pizza_2.setName("pizza_2");
+        Food pizza_2 =  new Food("pizza_2",12);
+        pizza_2.addIngredient(ingredientList.get("pateAPizza"),1);
+        pizza_2.addIngredient(ingredientList.get("tomate"),1);
+        pizza_2.addIngredient(ingredientList.get("fromage"),1);
         pizza_2.addIngredient(ingredientList.get("champignon"),1);
         
-        Food pizza_3 = pizza_1;
-        pizza_3.setName("pizza_3");
+        Food pizza_3 =  new Food("pizza_3",12);
+        pizza_3.addIngredient(ingredientList.get("pateAPizza"),1);
+        pizza_3.addIngredient(ingredientList.get("tomate"),1);
+        pizza_3.addIngredient(ingredientList.get("fromage"),1);
         pizza_3.addIngredient(ingredientList.get("chorizo"),1);
 
         Food fajitas_1 = new Food("fajitas_1", 11);
@@ -167,6 +174,8 @@ public class Builder {
         this.foodList.put("pizza_1",pizza_1);
         this.foodList.put("pizza_2",pizza_2);
         this.foodList.put("pizza_3",pizza_3);
+        this.foodList.put("fajitas_1",fajitas_1);
+        this.foodList.put("fajitas_2",fajitas_2);
     }
     
     private void generateDrink(){

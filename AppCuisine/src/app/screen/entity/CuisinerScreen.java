@@ -3,10 +3,10 @@ package app.screen.entity;
 import app.client.entity.*;
 import app.*;
 
-public class CuisinierScreen {
+public class CuisinerScreen{
     String personnelId;
     
-    public CuisinierScreen() {
+    public CuisinerScreen() {
         if(!Data.getIsRestaurantOpen()) {
             System.out.println("En attente de l'ouverture du restaurant...");
             Printer.enterToContinue();
@@ -38,7 +38,7 @@ public class CuisinierScreen {
             if(Data.cuisinierList.get(personnelId).getIsEnService()){
                 return personnelId;
             }else{
-                System.out.println("\nLe serveur n'est pas en service.");
+                System.out.println("\nLe cuisinier n'est pas en service.");
                 Printer.enterToContinue();
                 this.askId();
                 return null;

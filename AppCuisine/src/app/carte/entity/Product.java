@@ -65,7 +65,8 @@ public abstract class Product {
  * @param amount the amount of the ingredient to be added
  */
     public void addIngredient(Ingredient ingredient,int amount){
-        ingredient.setAmount(amount);
-        ingredientList.add(ingredient);
+        Ingredient newIngredient = new Ingredient(ingredient.getName(),amount);
+
+        ingredientList.add(newIngredient);
     }
 }

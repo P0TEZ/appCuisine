@@ -2,10 +2,11 @@ package app.carte.entity;
 
 public  class Ingredient {
     private String name;
-    private Integer amount = 1;
+    private Integer amount;
 
-    public Ingredient(String name){
+    public Ingredient(String name, Integer amount) {
         this.name = name;
+        this.amount = amount;
     }
 
 /**

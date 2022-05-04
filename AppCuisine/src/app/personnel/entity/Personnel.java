@@ -133,7 +133,7 @@ public  abstract class Personnel {
  */
     public int getNewNbJourDeTravailDeSuite() {
         if(this.isEnService){
-            return this.nbJourDeTravailDeSuite + 1;
+            return this.nbJourDeTravailDeSuite;
         }else{
             return 0;
         }

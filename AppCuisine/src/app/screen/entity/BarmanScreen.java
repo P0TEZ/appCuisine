@@ -39,7 +39,7 @@ public class BarmanScreen {
             if(Data.barmanList.get(personnelId).getIsEnService()){
                 return personnelId;
             }else{
-                System.out.println("\nLe serveur n'est pas en service.");
+                System.out.println("\nLe barman n'est pas en service.");
                 Printer.enterToContinue();
 
                 this.askId();

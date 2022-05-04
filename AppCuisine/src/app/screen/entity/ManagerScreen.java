@@ -108,7 +108,7 @@ public class ManagerScreen {
         for (Map.Entry<String, Integer> entry : Stock.getStock().entrySet()) {
             System.out.println("\t" + entry.getKey() + " : " + entry.getValue());
         }
-        System.out.println("\t-1 : Retour");
+        System.out.println("\t-1 : Retour ou ecrivez le nom d'un ingredient");
         
         
         String choixIngredient = Scan.sc.nextLine();

@@ -102,6 +102,7 @@ public class Stock {
     public static void useFoodIngredient(Food food) {
         for(Ingredient ingredient : food.getIngredientList()) {
             useIngredient(ingredient.getName(), ingredient.getAmount());
+            //System.out.println("Used " + ingredient.getAmount() + " " + ingredient.getName());
         }
     }
 }

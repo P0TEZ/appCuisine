@@ -184,6 +184,7 @@ Scan.sc.nextLine();
         
         System.out.println("\t1 : Nourriture");
         System.out.println("\t2 : Boissons");
+        System.out.println("\t3 : Activer le menu (100e : 7 boissones et 7 plats)");
         System.out.println("\t-1 : Retour");
         
         int choix = Scan.sc.nextInt();
@@ -195,6 +196,9 @@ Scan.sc.nextLine();
             break;
             case 2:
             this.drinkMenu(tableId);
+            break;
+            case 3:
+            this.reducMenu(tableId);
             break;
             case -1:
             this.tableMenu(tableId);
@@ -278,6 +282,31 @@ Scan.sc.nextLine();
         }
     }    
     
+    private void reducMenu(int tableId){
+        Printer.clearConsole();
+        System.out.println("------------------------------------------");
+        if(Data.tableList.get(tableId).getCommande().getNbDrink() >= 7 && Data.tableList.get(tableId).getCommande().getNbFood() >= 7){
+
+            if(Data.tableList.get(tableId).getCommande().getIsSpecialMenu()){
+                System.out.println("La promotion à été appliquée avec succès !");
+                System.out.println("------------------------------------------");
+            }
+            else{
+                Data.tableList.get(tableId).getCommande().setIsSpecialMenu(true);
+                System.out.println("La promotion à été appliquée avec succès !");
+                System.out.println("------------------------------------------");
+            }
+            Printer.enterToContinue();
+        }
+        else{
+            System.out.println("La promotion ne peut pas être appliquée. ");
+            System.out.println("\t(Rappel : 100 euros pour 7 plats et 7 boissons)");
+            System.out.println("------------------------------------------");
+            Printer.enterToContinue();
+        }
+        this.newCommandeMenu(tableId);
+    }
+
     private void closeTable(int tableId){
         Printer.clearConsole();
         
